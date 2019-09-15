@@ -26,4 +26,4 @@ In fibonacci series every number is the sum of previous two number.
     count=6
     output= 0 1 1 2 3 5
   ```
- * This problem is solved boh in conventional & recursive way
+ * This problem is solved both in conventional & recursive way
