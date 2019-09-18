@@ -9,5 +9,6 @@ Basic programming problem solved with python.
     Output: 0 1 1 2 3 5 8 13
   ```
 * Geometric Shape [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Geometric%20Shape)
-* Reverse String [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Recursion%20string%20and%20number)
+* Recursion Number Print [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Recursion%20Number%20Print)
+* Recursion Reverse String [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Recursion%20Reverse%20String)
 * Runner Up [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Runner%20Up)
