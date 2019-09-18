@@ -12,9 +12,9 @@ Such as triangle,square etc.
   ``` n = Number of line in this object shape ```
   ``` 
     Example for triangle:
-    n=3 
+    n=10 
   ```
-  ![Image description](https://github.com/Mazhar004/Python-Programming/blob/master/Geometric%20Shape/triangle.png)
+  ![A triangle ](https://github.com/Mazhar004/Python-Programming/blob/master/Geometric%20Shape/triangle.png)
     
  * This problem is solved for :
     * Triangle
