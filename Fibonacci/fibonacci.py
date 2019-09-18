@@ -2,6 +2,9 @@ def fibonacci(n):
     '''
         count = Number of value you want to print
 
+        fibonacci(n):
+            This function return fibonacci series, which has n number of digit.
+
         Example 1 : 
             count=3
             output= 0 1 1
@@ -11,7 +14,6 @@ def fibonacci(n):
         Example 2 :
             count=6
             output= 0 1 1 2 3 5
-
     '''
 
     previous = 0
@@ -23,5 +25,5 @@ def fibonacci(n):
 
 if __name__ == "__main__":
 
-    n = int(input('Enter Number of Element for Fibonacci Series = '))
+    n = int(input('Enter number of element for fibonacci series = '))
     fibonacci(n)
