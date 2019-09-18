@@ -1,8 +1,12 @@
 def fibonacci_recursion(count, previous=0, current=1):
     '''
-        Here Previous and Current parameters are optional. So user did not need to input this value
-
         count = Number of value you want to print
+
+        fibonacci(count, previous=0, current=1):
+
+            Here previous & current parameters are optional. So user did not need to input this value.
+
+            This function return fibonacci series, which has n number of digit.
 
         Example 1 : 
             count=3
@@ -13,7 +17,6 @@ def fibonacci_recursion(count, previous=0, current=1):
         Example 2 :
             count=6
             output= 0 1 1 2 3 5
-
     '''
     if count:
         print(previous, end=' ')
@@ -22,5 +25,5 @@ def fibonacci_recursion(count, previous=0, current=1):
 
 if __name__ == "__main__":
 
-    n = int(input('Enter Number of Element for Fibonacci Series = '))
+    n = int(input('Enter number of element for fibonacci series = '))
     fibonacci_recursion(n)

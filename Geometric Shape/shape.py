@@ -1,6 +1,9 @@
 def triangle(line):
     '''
         n = Number of line in this object shape
+
+        triangle(line):
+            Will print a shape of triangle.
     '''
     print('Its a triangle:')
     for i in range(1, line+1):
@@ -10,6 +13,9 @@ def triangle(line):
 def right_triangle(line):
     '''
         n = Number of line in this object shape
+
+        right_triangle(line):
+            Will print a shape of right triangle.
     '''
     print('Its a right triangle:')
     for i in range(1, line+1):
@@ -19,6 +25,9 @@ def right_triangle(line):
 def square(line):
     '''
         n = Number of line in this object shape
+
+        square(line):
+            Will print a shape of square.
     '''
     if line < 6:
         print('Try with a value greater than 5')
@@ -33,6 +42,9 @@ def square(line):
 def rectangle(value):
     '''
         n = Number of line in this object shape
+
+        rectangle(line):
+            Will print a shape of rectangle.
     '''
     if value < 6:
         print('Try with a value greater than 5')
@@ -47,6 +59,9 @@ def rectangle(value):
 def crown(line):
     '''
         n = Number of line in this object shape
+
+        crown(line):
+            Will print a shape of crown.
     '''
     print('Its a crown:')
     for i in range(1, line+1):

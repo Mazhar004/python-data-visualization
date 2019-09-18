@@ -2,7 +2,8 @@ def recursion_number(n):
     '''
     n = Number
 
-    Print each digit of "n" seperately using recursion
+    recursion_number(n):
+        Print each digit of "n" seperately using recursion.
     '''
     if n > 9:
         recursion_number(n//10)
