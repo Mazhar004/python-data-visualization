@@ -13,7 +13,7 @@ Basic programming problem solved with python.
     Example for triangle:
     n=10 
   ```
-  ![A triangle ](https://github.com/Mazhar004/Python-Programming/blob/master/Geometric%20Shape/triangle.png)
+  ![A triangle ](https://github.com/Mazhar004/Python-Programming/blob/master/Geometric%20Shape/Triangle.png)
     
    * This problem is solved for :
       * Triangle
