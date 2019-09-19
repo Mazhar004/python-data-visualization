@@ -14,6 +14,6 @@ In recursion, program will call itself.
   Example:
     n      = 1234
     output = 1 2 3 4
-    count  = 5735
+    n      = 5735
     output = 5 7 3 5
   ```
