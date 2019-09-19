@@ -13,7 +13,7 @@ Runner up problem will find the first and second highest value from a given inpu
   ```
   
   ``` 
-  Example :
+  Example:
     n      = 1 3 4 2 56 7 8 23
     output = 56 23
   ```
