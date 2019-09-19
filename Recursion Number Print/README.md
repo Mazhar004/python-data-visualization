@@ -2,7 +2,7 @@
 
 ## Description: ##
 
-In recursion, program call itself.
+In recursion, program will call itself.
 
 ## Program ##
 
