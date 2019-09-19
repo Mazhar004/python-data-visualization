@@ -6,7 +6,7 @@ In recursion, program call itself.
 
 ## Program ##
 
-* This recursion function takes parameter "n" as input. And it will print each of it's digit seperately by using recursive method :
+* This recursion function takes input parameter "n" as number. And it will print each of it's digit seperately by using recursive method :
 
   ``` n = Number ```
   
