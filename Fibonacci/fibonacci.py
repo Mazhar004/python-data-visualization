@@ -6,14 +6,14 @@ def fibonacci(n):
             This function return fibonacci series, which has n number of digit.
 
         Example 1 : 
-            count=3
-            output= 0 1 1
+            count  = 3
+            output = 0 1 1
 
         -----------------------
 
         Example 2 :
-            count=6
-            output= 0 1 1 2 3 5
+            count  = 6
+            output = 0 1 1 2 3 5
     '''
 
     previous = 0
