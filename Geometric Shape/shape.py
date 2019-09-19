@@ -5,7 +5,7 @@ def triangle(line):
         triangle(line):
             Will print a shape of triangle.
     '''
-    print('Its a triangle:')
+    print("It's a triangle:")
     for i in range(1, line+1):
         print(' '*(line-i)+'*'*(2*i-1))
 
@@ -17,7 +17,7 @@ def right_triangle(line):
         right_triangle(line):
             Will print a shape of right triangle.
     '''
-    print('Its a right triangle:')
+    print("It's a right triangle:")
     for i in range(1, line+1):
         print('*'*(2*i-1))
 
@@ -32,7 +32,7 @@ def square(line):
     if line < 6:
         print('Try with a value greater than 5')
         return 0
-    print('Its a square:')
+    print("It's a square:")
     print('*'*line)
     for _ in range(1, (line-2)//2):
         print('*'+' '*(line-2)+'*')
@@ -49,7 +49,7 @@ def rectangle(value):
     if value < 6:
         print('Try with a value greater than 5')
         return 0
-    print('Its a rectangle:')
+    print("It's a rectangle:")
     print('*'*2*value)
     for _ in range(1, (value)//2-1):
         print('*'+' '*(2*value-2)+'*')
@@ -63,7 +63,7 @@ def crown(line):
         crown(line):
             Will print a shape of crown.
     '''
-    print('Its a crown:')
+    print("It's a crown:")
     for i in range(1, line+1):
         print('*'*(2*i-1)+' '*(2*line-(2*i-1))+' '*(line-i)+'*' *
               (2*i-1)+' '*(line-i)+' '*(2*line-(2*i-1))+'*'*(2*i-1))
