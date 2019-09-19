@@ -6,7 +6,7 @@ Runner up problem will find the first and second highest value from a given inpu
 
 ## Program ##
 
-* This function takes parameter "n" as a stream of numbers. And give output of first & second highest :
+* This function takes input parameter "n" as a stream of numbers. And give output of first & second highest :
 
   ``` 
   n= List of numbers
