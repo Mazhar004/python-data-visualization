@@ -2,11 +2,11 @@
 
 ## Description: ##
 
-String reverse means print the string from last to first. It can be done by using recursive approach. And In recursion, program will call itself.
+String reverse means print the each character of a string from last to first. It can be done by using recursive approach. And we know in recursion, program will call itself.
 
 ## Program ##
 
-* This recursion reverse function takes parameter "string" as input. And it will print the string in reverse order :
+* This recursion reverse function takes input parameter "string" as string. And it will print the string in reverse order :
 
   ``` 
   string = Input string
@@ -16,6 +16,6 @@ String reverse means print the string from last to first. It can be done by usin
   
   ``` 
   Example:
-    string      = "Hello world"
-    output      = "dlrow olleh"
+    string = "Hello world"
+    output = "dlrow olleh"
   ```
