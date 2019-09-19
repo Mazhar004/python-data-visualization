@@ -6,7 +6,7 @@ Every number can be represent as a multiplication of prime numbers.
 
 ## Program ##
 
-* This function count the number of occurence of prime number "prime" in a given range "start" to "end"
+* This function count the number of occurence of prime number "prime" in a given range "start" to "end":
 
   ``` 
   start = Starting Value
