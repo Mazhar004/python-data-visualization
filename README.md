@@ -15,7 +15,7 @@ Basic programming problem solved with python.
   ```
   ![A triangle ](https://github.com/Mazhar004/Python-Programming/blob/master/Geometric%20Shape/Triangle.png)
     
-   * This problem is solved for :
+   * This problem is solved for:
       * Triangle
       * Right triangle
       * Square
@@ -37,7 +37,7 @@ Basic programming problem solved with python.
    ```
 * Runner Up [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Runner%20Up)
    ```
-   Example :
+   Example:
     n      = 1 3 4 2 56 7 8 23
     output = 56 23
    ```
