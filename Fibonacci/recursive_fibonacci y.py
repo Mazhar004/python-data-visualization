@@ -4,19 +4,19 @@ def fibonacci_recursion(count, previous=0, current=1):
 
         fibonacci(count, previous=0, current=1):
 
-            Here previous & current parameters are optional. So user did not need to input this value.
+            Here previous & current parameters are optional. So user don't need to input this value.
 
             This function return fibonacci series, which has n number of digit.
 
         Example 1 : 
-            count=3
-            output= 0 1 1
+            count  = 3
+            output = 0 1 1
 
         -----------------------
 
         Example 2 :
-            count=6
-            output= 0 1 1 2 3 5
+            count  = 6
+            output = 0 1 1 2 3 5
     '''
     if count:
         print(previous, end=' ')

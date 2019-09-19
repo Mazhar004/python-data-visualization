@@ -5,6 +5,10 @@ def reverse_string(string, i=0):
 
     reverse_string(string, i=0):
         Print reversed string using recursion.
+
+    Example:
+        string = "Hello world"
+        output = "dlrow olleh"
     '''
     if i < len(string)-1:
         reverse_string(string, i+1)
