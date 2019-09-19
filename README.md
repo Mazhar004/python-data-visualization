@@ -40,4 +40,25 @@ Basic programming problem solved with python.
    Example:
     n      = 1 3 4 2 56 7 8 23
     output = 56 23
+* Prime Number Count [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Count%20Number%20Occurence)
+   ```
+   Example:
+
+        start = 1
+        end   = 10
+        prime = 2
+                                    Occurence of 2
+        1            = 1                  0
+        2            = 1*2                1
+        3            = 1*3                0
+        4            = 1*2*2              2
+        5            = 1*5                0
+        6            = 1*2*3              1
+        7            = 1*7                0
+        8            = 1*2*2*2            3
+        9            = 1*3*3              0
+        10           = 1*2*5              1
+
+        Total/Output =                    8
+
    ```
