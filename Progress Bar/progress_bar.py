@@ -1,8 +1,8 @@
 from time import sleep
 
 
-def progress_bar(value, maxi):
-    value = int((value/maxi)*100)
+def progress_bar(value, maximum):
+    value = int((value/maximum)*100)
     for i in range(1, value+1):
         sleep(.3)
         rightmost, leftmost, inchar, emptychar, width = "▌", " ▌", "█", '▬', 100
@@ -12,5 +12,5 @@ def progress_bar(value, maxi):
 
 
 if __name__ == '__main__':
-    value, rang = map(int, input("Input value & range =").split(' '))
-    progress_bar(value, rang)
+    value, maximum = map(int, input("Input value & maximum =").split(' '))
+    progress_bar(value, maximum)
