@@ -9,6 +9,7 @@ Print a progress bar through a function.
 * In this program progress bar created by taking input parameter "value" &"maximum" :
 
   ``` value   = Portion of progress bar loading ```
+  
   ``` maximum = Total size of progress bar ```
   ``` 
     Example for triangle:
