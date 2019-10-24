@@ -62,3 +62,10 @@ Basic programming problem solved with python.
         Total/Output =                    8
 
    ```
+* Progress Bar [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Progress%20Bar)
+  ```
+  Example:
+  range,maxi     = 20 100
+  output = 
+  ```
+  ![ Progress Bar ](https://github.com/Mazhar004/Python-Programming/blob/master/Progress%20Bar/progress%20bar.png)
