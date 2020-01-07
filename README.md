@@ -46,9 +46,9 @@ Basic programming problem solved with python.
       * Square
       * Rectangle
       * Crown
-* Matplot 2D to 3D [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Matplot%202D%20to%203D)
+* Matplot 2D to 3D [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Matplot%202D%20%26%203D)
 
-  ![ Heart ](https://github.com/Mazhar004/Python-Programming/blob/master/Matplot%202D%20to%203D/Image/heart.png)
+  ![ Heart ](https://github.com/Mazhar004/Python-Programming/blob/master/Matplot%202D%20%26%203D/Image/heart.png)
   * There is also:
       * 3D Normal distribution shape
       * Prime number shape
