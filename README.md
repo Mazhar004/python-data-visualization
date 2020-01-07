@@ -46,7 +46,7 @@ Basic programming problem solved with python.
       * Square
       * Rectangle
       * Crown
-* Matplot 2D to 3D [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Matplot%202D%20%26%203D)
+* Matplot 2D & 3D [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Matplot%202D%20%26%203D)
 
   ![ Heart ](https://github.com/Mazhar004/Python-Programming/blob/master/Matplot%202D%20%26%203D/Image/heart.png)
   * There is also:
