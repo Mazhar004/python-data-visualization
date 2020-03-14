@@ -1,38 +1,13 @@
 # Python3-Programming #
 
-Basic programming problem solved with python.
+## Python diversity & visualization. ##
 
-* Prime Number Count [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Count%20Number%20Occurence)
-   ```
-   Example:
+*  Corona Affected Country [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Corona%20Affected%20Country)
+   * **Word Cloud:**
+  ![Word Cloud](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Corona%20Affected%20people.png)
+   * **Worldwide affected:**
+  ![Worldwide affected](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Corona.png)
 
-        start = 1
-        end   = 10
-        prime = 2
-                                    Occurence of 2
-        1            = 1                  0
-        2            = 1*2                1
-        3            = 1*3                0
-        4            = 1*2*2              2
-        5            = 1*5                0
-        6            = 1*2*3              1
-        7            = 1*7                0
-        8            = 1*2*2*2            3
-        9            = 1*3*3              0
-        10           = 1*2*5              1
-
-        Total/Output =                    8
-
-   ```
-
-
-* Fibonacci in conventional & recursive way [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Fibonacci)
-   ```
-    Input : 5
-    Output: 0 1 1 2 3
-    Input : 8
-    Output: 0 1 1 2 3 5 8 13
-  ```
 * Geometric Shape [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Geometric%20Shape)
   ``` 
     Example for triangle:
@@ -46,6 +21,10 @@ Basic programming problem solved with python.
       * Square
       * Rectangle
       * Crown
+* Kuet Student Gender Ratio(Web Scrapping) [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Kuet%20Student%20Gender%20Ratio)
+  * Number of boys & girls in percentage
+  ![Gender ratio](https://github.com/Mazhar004/Python-Programming/blob/master/Kuet%20Student%20Gender%20Ratio/Kuet%20Boys%20Vs%20Girls.png)
+  
 * Matplot 2D & 3D [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Matplot%202D%20%26%203D)
 
   ![ Heart ](https://github.com/Mazhar004/Python-Programming/blob/master/Matplot%202D%20%26%203D/Image/heart.png)
@@ -61,24 +40,3 @@ Basic programming problem solved with python.
   output = 
   ```
   ![ Progress Bar ](https://github.com/Mazhar004/Python-Programming/blob/master/Progress%20Bar/progress%20bar.png)
-  
-* Recursion Number Print [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Recursion%20Number%20Print)
-   ```
-   Example:
-    n      = 1234
-    output = 1 2 3 4
-    n      = 5735
-    output = 5 7 3 5
-   ```
-* Recursion Reverse String [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Recursion%20Reverse%20String)
-   ``` 
-   Example:
-      string = "Hello world"
-      output = "dlrow olleh"
-   ```
-* Runner Up [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Runner%20Up)
-   ```
-   Example:
-    n      = 1 3 4 2 56 7 8 23
-    output = 56 23
-    ```
