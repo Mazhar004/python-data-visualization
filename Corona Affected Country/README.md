@@ -6,4 +6,4 @@ Coronavirus rapidly spread out across the world.This is the visual representatio
 
 ## Data collection ##
 
-This data was collected from an online portal in real time. [Link](https://infographics.channelnewsasia.com/covid-19/map.html)
+This data was collected from an online portal in real time. [Link](https://www.ecdc.europa.eu/en)
