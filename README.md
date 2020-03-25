@@ -4,7 +4,7 @@
 
 *  Corona Affected Country [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Corona%20Affected%20Country)
    * **Word Cloud:**
-  ![Word Cloud](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Corona%20Affected%20people.png)
+  ![Word Cloud](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Corona%20Stat%20Country%20wise.png)
    * **Worldwide Affected:**
   ![Worldwide affected](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Corona%20Stat%20Country%20wise.png)
 
