@@ -8,7 +8,7 @@
    * **Country Statistics:**
     ![Country Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Image/Corona.png)
    * **Worldwide Affected Statistics:**
-    ![Affected Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Image/%20Corona%20Active.png)
+    ![Affected Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Image/%20Corona%20World%20Wise%20Active.png)
 
 
 * Geometric Shape [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Geometric%20Shape)
