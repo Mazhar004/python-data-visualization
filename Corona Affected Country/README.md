@@ -14,9 +14,9 @@ This data was collected from an online portal in real time. [Link](https://www.w
 * **Country Statistics:**
   ![Country Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Image/Corona.png)
 * **Worldwide Recover Statistics:**
-  ![Recover Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Image/%20Corona%20Recover.png)
+  ![Recover Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Image/%20Corona%20World%20Wise%20Recover.png)
 * **Worldwide Affected Statistics:**
-  ![Affected Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Image/%20Corona%20Active.png)
+  ![Affected Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Image/%20Corona%20World%20Wise%20Active.png)
 * **Worldwide Death Statistics:**
-  ![Death Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Image/%20Corona%20Death.png)
+  ![Death Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Image/%20Corona%20World%20Wise%20Death.png)
 
