@@ -4,11 +4,11 @@
 
 *  Corona Affected Country [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Corona%20Affected%20Country)
    * **Word Cloud:**
-    ![Word Cloud](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Image/Corona%20Stats%20Country%20wise.png)
+    ![Word Cloud](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Images/Corona%20Stats%20Country%20wise.png)
+   * **Country Wise Comparisions:**
+    ![Country Comparisions](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Images/COVID-19%20Confirmed%20Cases%20Comparision%20Graph.png)
    * **Country Statistics:**
-    ![Country Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Image/Corona.png)
-   * **Worldwide Affected Statistics:**
-    ![Affected Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Image/%20Corona%20World%20Wise%20Active.png)
+    ![Country Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Images/Corona.png)
 
 
 * Geometric Shape [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Geometric%20Shape)
