@@ -21,7 +21,7 @@ This data was collected from an online portal in real time. [Link](https://data.
   ![Affected Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Images/Corona%20World%20Wise%20Active.png)
 
 
-## Country included in this data:
+## Country included in this Dataset:
     1. Afghanistan
     2. Albania
     3. Algeria
