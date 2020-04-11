@@ -6,7 +6,7 @@
    * **Word Cloud:**
     ![Word Cloud](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Images/Corona%20Stats%20Country%20wise.png)
    * **Country Wise Comparisions:**
-    ![Country Comparisions](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Images/COVID-19%20Confirmed%20Cases%20Comparision%20Graph%20in%20Italy%20France%20Germany.png)
+    ![Country Comparisions](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Images/COVID-19%20Death%20Cases%20Comparision%20Graph%20in%20Italy%20France%20US.png)
    * **Country Statistics:**
     ![Country Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Images/Corona.png)
 
