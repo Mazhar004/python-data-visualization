@@ -39,7 +39,8 @@
 * Progress Bar [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Progress%20Bar)
   ```
   Example:
-  value, maximum = 20 100
+  value, maximum = 40 200
+  40 out of 200 after rescaling in percentage:
   output = 
   ```
   ![ Progress Bar ](https://github.com/Mazhar004/Python-Programming/blob/master/Progress%20Bar/progress%20bar.png)
