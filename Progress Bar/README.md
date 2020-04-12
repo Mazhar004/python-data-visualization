@@ -8,11 +8,14 @@ Print a progress bar through a function.
 
 * In this program progress bar created by taking input parameter "value" &"maximum" :
 
-  ``` value   = Portion of progress bar loading ```
+  ``` value   = Value that will be loaded ```
   
-  ``` maximum = Total size of progress bar ```
+  ``` maximum = Maximum value for scaling ```
   ``` 
-    Example for triangle:
-    value, maximum = 20,100
+    Example:
+      Such as 40 out of 200
+      value   = 40
+      maximum = 200
+      40 out of 200 after rescaling in percentage:
   ```
   ![ Progress Bar ](https://github.com/Mazhar004/Python-Programming/blob/master/Progress%20Bar/progress%20bar.png)
