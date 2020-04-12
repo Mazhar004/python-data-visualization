@@ -7,7 +7,13 @@ def progress_bar(value, maximum):
             Will print progress bar for data loading status rescaling in percentage.
             
             value   = Value that will be loaded
-            maximum = Maximum value for scaling
+            maximum = Maximum value for scaling 
+            
+            Example:
+                Such as 40 out of 200
+                
+                value   = 40
+                maximum = 200
             
     '''
     value = int((value/maximum)*100)
