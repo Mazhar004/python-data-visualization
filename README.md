@@ -26,7 +26,7 @@
       * Crown
 * Kuet Student Gender Ratio(Web Scrapping) [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Kuet%20Student%20Gender%20Ratio)
   * Number of boys & girls in percentage
-  ![Gender ratio](https://github.com/Mazhar004/Python-Programming/blob/master/Kuet%20Student%20Gender%20Ratio/Kuet%20Boys%20Vs%20Girls.png)
+  ![Gender ratio](https://github.com/Mazhar004/Python-Programming/blob/master/Kuet%20Student%20Gender%20Ratio/Images/Percentage%20of%20Boys%20%26%20Girls%20Department%20wise%20in%20KUET%20(27%20October%202019).png)
   
 * Matplot 2D & 3D [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Matplot%202D%20%26%203D)
 
