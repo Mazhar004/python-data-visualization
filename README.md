@@ -13,10 +13,10 @@
 
 * Geometric Shape [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Geometric%20Shape)
   ``` 
-    Example for triangle:
-    n=10 
+    Example for crown:
+    n=5 
   ```
-  ![A triangle ](https://github.com/Mazhar004/Python-Programming/blob/master/Geometric%20Shape/Triangle.png)
+  ![A Crown](https://github.com/Mazhar004/Python-Programming/blob/master/Geometric%20Shape/Crown.png)
     
    * This problem is solved for:
       * Triangle
@@ -30,7 +30,7 @@
   
 * Matplot 2D & 3D [ Link ](https://github.com/Mazhar004/Python-Programming/tree/master/Matplot%202D%20%26%203D)
 
-  ![ Heart ](https://github.com/Mazhar004/Python-Programming/blob/master/Matplot%202D%20%26%203D/Image/heart.png)
+  ![ Heart ](https://github.com/Mazhar004/Python-Programming/blob/master/Matplot%202D%20%26%203D/Images/Heart.png)
   * There is also:
       * 3D Normal distribution shape
       * Prime number shape
