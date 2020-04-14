@@ -11,8 +11,8 @@ Such as triangle,square etc.
 
   ``` n = Number of line in this object shape ```
   ``` 
-    Example for triangle:
-    n=10 
+    Example for crown:
+    n=5 
   ```
   ![A Crown ](https://github.com/Mazhar004/Python-Programming/blob/master/Geometric%20Shape/Crown.png)
     
