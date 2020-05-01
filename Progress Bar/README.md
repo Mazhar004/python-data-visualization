@@ -18,4 +18,4 @@ Print a progress bar through a function.
       maximum = 200
       40 out of 200 after rescaling in percentage:
   ```
-  ![ Progress Bar ](https://github.com/Mazhar004/Python-Programming/blob/master/Progress%20Bar/progress%20bar.png)
+  ![ Progress Bar ](progress%20bar.png)
