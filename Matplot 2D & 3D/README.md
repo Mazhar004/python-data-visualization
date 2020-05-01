@@ -7,6 +7,6 @@
 ## Program ##
 
 * In this program different types of shapes were created :
-  ![ Heart ](https://github.com/Mazhar004/Python-Programming/blob/master/Matplot%202D%20%26%203D/Images/Heart.png)
-  ![ Normal Distribution ](https://github.com/Mazhar004/Python-Programming/blob/master/Matplot%202D%20%26%203D/Images/Normal%20Distribution.png)
-  ![ Prime Shape ](https://github.com/Mazhar004/Python-Programming/blob/master/Matplot%202D%20%26%203D/Images/Prime%20Number%20Pattern.png)
+  ![ Heart ](Images/Heart.png)
+  ![ Normal Distribution ](Images/Normal%20Distribution.png)
+  ![ Prime Shape ](Images/Prime%20Number%20Pattern.png)
