@@ -14,7 +14,7 @@ Such as triangle,square etc.
     Example for crown:
     n=5 
   ```
-  ![A Crown ](https://github.com/Mazhar004/Python-Programming/blob/master/Geometric%20Shape/Crown.png)
+  ![A Crown ](Crown.png)
     
  * This problem is solved for :
     * Triangle
