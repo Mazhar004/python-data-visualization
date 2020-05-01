@@ -10,15 +10,15 @@ This data was collected from an online portal in real time. [Link](https://data.
 
 ## Data visualize ##
 * **Word Cloud:**
-  ![Word Cloud](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Images/Corona%20Stats%20Country%20wise.png)
+  ![Word Cloud](Images/Corona%20Stats%20Country%20wise.png)
 * **Country Wise Comparisions:**
-  ![Country Comparisions](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Images/COVID-19%20Confirmed%20Cases%20Comparision%20Graph%20in%20Colombia%20Bangladesh%20Finland%20South%20Africa.png)
+  ![Country Comparisions](Images/COVID-19%20Confirmed%20Cases%20Comparision%20Graph%20in%20Colombia%20Bangladesh%20Finland%20South%20Africa.png)
 * **Country Statistics Graph:**
-  ![Country Statistics Graph](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Images/France%20COVID-19%20Graph.png)
+  ![Country Statistics Graph](Images/France%20COVID-19%20Graph.png)
 * **Country Statistics:**
-  ![Country Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Images/Corona.png)
+  ![Country Statistics](Images/Corona.png)
 * **Worldwide Affected Statistics:**
-  ![Affected Statistics](https://github.com/Mazhar004/Python-Programming/blob/master/Corona%20Affected%20Country/Images/Corona%20World%20Wise%20Active.png)
+  ![Affected Statistics](Images/Corona%20World%20Wise%20Active.png)
 
 
 ## Country included in this Dataset:
