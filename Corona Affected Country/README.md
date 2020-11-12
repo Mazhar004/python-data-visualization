@@ -12,9 +12,9 @@ This data was collected from an online portal in real time. [Link](https://data.
 * **Word Cloud:**
   ![Word Cloud](Images/Corona%20Stats%20Country%20wise.png)
 * **Country Wise Comparisions:**
-  ![Country Comparisions](Images/COVID-19%20Confirmed%20Cases%20Comparision%20Graph%20in%20Pakistan%20Italy%20Bangladesh%20France.png)
+  ![Country Comparisions](Images/COVID-19%20Confirmed%20Cases%20Comparision%20Graph%20in%20Czechia%20Netherlands%20Bangladesh%20Turkey.png)
 * **Country Statistics Graph:**
-  ![Country Statistics Graph](Images/Italy%20COVID-19%20Graph.png)
+  ![Country Statistics Graph](Images/US%20COVID-19%20Graph.png)
 * **Country Statistics:**
   ![Country Statistics](Images/Corona.png)
 * **Worldwide Affected Statistics:**
