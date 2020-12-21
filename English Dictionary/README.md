@@ -24,8 +24,6 @@
   >>> We didn not find helo.
   >>> Please have a look similar word matching with your input key
       ['Help', 'Hel', 'Helot', 'Hero', 'He lo', 'He-lo', 'Hel o', 'Hole', 'Hello', 'Halo', 'Hell', 'Held']
-
-
 ```
 
 ## Word Game
