@@ -11,6 +11,19 @@
     ![Country Statistics](Corona%20Affected%20Country/Images/Corona.png)
 
 
+* English Dictionary [ Link ](English%20Dictionary)
+  ```python
+  from dictionary import Dictionary
+  dictionary_data = Dictionary()
+  print(dictionary_data['cosmos'])
+  >>> Everything that exists anywhere.
+
+  print(dictionary_data['helo'])
+  >>> We didn not find helo.
+  >>> Please have a look similar word matching with your input key
+      ['Help', 'Hel', 'Helot', 'Hero', 'He lo', 'He-lo', 'Hel o', 'Hole', 'Hello', 'Halo', 'Hell', 'Held']
+  ```
+      
 * Geometric Shape [ Link ](Geometric%20Shape)
   ``` 
     Example for crown:
