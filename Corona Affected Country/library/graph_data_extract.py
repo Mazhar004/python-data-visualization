@@ -25,8 +25,8 @@ def graph_data_extract():
                 except:
                     pass
             df = df.groupby(by='Country/Region').sum()
-            df.columns = [dt.strftime(dt.strptime(i, '%m/%d/%y'), '%d\n%b')
-                          for i in df.columns]
+#             df.columns = [dt.strftime(dt.strptime(i, '%m/%d/%y'), '%d\n%b')
+#                           for i in df.columns]
             df.to_csv('CSV/'+i+'.csv', index=True)
         except:
             df = pd.read_csv('CSV/' + i + '.csv', index_col='Country/Region')
