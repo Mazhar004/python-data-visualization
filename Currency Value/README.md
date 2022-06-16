@@ -2,7 +2,7 @@
 
 ## Description: ##
 
-Plot historical exchange rate data for different currency. I have scrap historical data for specific currency & plot those data.
+I have scrap historical data for specific currency exchange rate & plot those data.
 
 ## Data collection ##
 
@@ -11,7 +11,7 @@ This data was collected from an online portal in real time. [Link](https://www.i
 
 ## Program ##
 
-  ``` country_curr   = Country currency name  ``` [Example can be found in [country_currency_code.json](country_currency_code.json)] 
+  ``` country_curr   = Country currency name``` [Example can be found in [country_currency_code.json](country_currency_code.json)] 
   
   ``` days = For how many days in the past historical data you need ```
   ``` 
