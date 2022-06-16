@@ -1,4 +1,4 @@
-# Python Data Visulization #
+# Python Data Visualization #
 ## **Corona Affected Country [Link](Corona%20Affected%20Country)**
    * **Word Cloud:**
     ![Word Cloud](Corona%20Affected%20Country/Images/Corona%20Stats%20Country%20wise.png)
