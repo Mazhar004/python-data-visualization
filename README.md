@@ -40,3 +40,8 @@
   output = 
   ```
   ![ Progress Bar ](Progress%20Bar/progress%20bar.png)
+
+## **SSC Scholarship 2023 [ Link ](SSC%20Scholarship%202023)**
+* **Top 200 Students Stats**
+  ![ Top 200 Students Stats ](SSC%20Scholarship%202023/data/top%20200.png)
+
