@@ -1,8 +1,6 @@
 # Python Data Visualization #
 ## **Corona Affected Country [Link](Corona%20Affected%20Country)**
 ![Word Cloud](Corona%20Affected%20Country/Images/Corona%20Stats%20Country%20wise.png)
-## **Currency Exchange Rate [ Link ](Currency%20Value)**
-![BDT Exchange Rate based on USD](Currency%20Value/Images/bdt_exchange_rate.png)
 ## **SSC Scholarship 2023 [ Link ](SSC%20Scholarship%202023)**
 ![ Top 200 Students Stats ](SSC%20Scholarship%202023/data/top%20200.png)
 ## **Kuet Student Gender Ratio(Web Scrapping) [ Link ](Kuet%20Student%20Gender%20Ratio)**
