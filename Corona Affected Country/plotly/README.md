@@ -10,15 +10,15 @@ This data was collected from an online portal in real time. [Link](https://data.
 
 ## Data visualize ##
 * **Word Cloud:**
-  ![Word Cloud](Images/Corona%20Stats%20Country%20wise.png)
+  ![Word Cloud](Images/COVID%20death%20casees%20as%20a%20WordCloud.png)
 * **Country Wise Comparisions:**
-  ![Country Comparisions](Images/COVID-19%20Confirmed%20Cases%20Comparision%20Graph%20in%20Czechia%20Netherlands%20Bangladesh%20Turkey.png)
+  ![Country Comparisions](Images/Covid%20confirmation%20cases%20compared%20by%20country.png)
 * **Country Statistics Graph:**
-  ![Country Statistics Graph](Images/US%20COVID-19%20Graph.png)
+  ![Country Statistics Graph](Images/US%20COVID%20stats%20analyze%20by%20line%20chart.png)
 * **Country Statistics:**
-  ![Country Statistics](Images/Corona.png)
+  ![Country Statistics](Images/Country%20wise%20COVID%20Case%20study.png)
 * **Worldwide Affected Statistics:**
-  ![Affected Statistics](Images/Corona%20World%20Wise%20Active.png)
+  ![Affected Statistics](Images/Top%2010%20Country%20by%20COVID%20confirmation%20case.png)
 
 
 ## Country included in this Dataset:
