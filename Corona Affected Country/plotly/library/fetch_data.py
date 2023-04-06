@@ -64,8 +64,8 @@ def get_data(online=True):
             df = pd.read_csv(filename)
             df = df.set_index(['Dataset', 'Country'])
             df = col_conv(df)
-        except Exception as Err:
-            print(f'Data not available locally, needed to fecth online.\nError Msg = {Err}')
+        except Exception as _:
+            print('Data not available locally, needed to fecth online.\nPlease wait..')
             df = df_get_format(url_dict)
             df.to_csv(filename)
     return df
