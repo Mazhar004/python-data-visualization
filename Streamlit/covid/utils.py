@@ -29,17 +29,19 @@ def date_filter(df, start_date, end_date):
 
 
 def build_bar_data(df):
-    def get_row_index(x):
-        return x[(x != 0).last_valid_index()]
+    transform_df = df.mask(df == 0).ffill(axis=1)
     data = []
-    for d_type, t_df in df.groupby('Dataset'):
-        for country, tt_df in t_df.groupby('Country'):
-            data.append([d_type, country, tt_df.apply(
-                get_row_index, axis=1).iloc[0]])
+    for _, row in transform_df.iterrows():
+        val = row.iloc[-1]
+        try:
+            val = float(val)
+        except:
+            val = 0
+        data.append([row.Dataset, row.Country, val])
 
     columns = ['Dataset', 'Country', 'Value']
-    f_df = pd.DataFrame(data, columns=columns).sort_values(
-        by='Value', ascending=False)
+    f_df = pd.DataFrame(data, columns=columns).sort_values(by='Value',
+                                                           ascending=False)
 
     return f_df
 
