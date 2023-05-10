@@ -15,7 +15,7 @@ def date_conv(str_date, format='%Y-%m-%d'):
 
 df = pd.read_csv('../../Corona Affected Country/plotly/data/full_stats.csv')
 date_formatted = {item: date_conv(item) for item in df.columns[2:]}
-df = df.rename(columns=date_formatted)
+df = df.rename(columns=date_formatted).replace({-1: 0})
 
 
 st.set_page_config(layout="wide")
