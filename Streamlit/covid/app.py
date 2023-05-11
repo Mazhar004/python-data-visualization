@@ -8,7 +8,7 @@ import streamlit as st
 from covid_streamlit_view import covid_lines_stats, covid_bars_stats
 
 github_logo = 'https://img.shields.io/badge/GitHub-Repo-blue?logo=github'
-repo_url = 'https://github.com/Mazhar004/python-data-visualization/Streamlit/covid'
+repo_url = 'https://github.com/Mazhar004/python-data-visualization/tree/master/Streamlit/covid'
 repo = f'[![GitHub Repo]({github_logo})]({repo_url})'
 
 
