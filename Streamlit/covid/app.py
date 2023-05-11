@@ -24,11 +24,6 @@ df = df.rename(columns=date_formatted).replace({-1: 0})
 
 st.set_page_config(page_title="COVID Stats", layout="wide")
 st.markdown(repo, unsafe_allow_html=True)
-
-### StreamLit View ###
-covid_lines_stats(df)
-covid_bars_stats(df)
-
 # Disable Streamlit menu button and footer
 st.markdown(
     """
@@ -39,3 +34,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+### StreamLit View ###
+covid_lines_stats(df)
+covid_bars_stats(df)
