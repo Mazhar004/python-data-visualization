@@ -22,9 +22,9 @@ This data was collected from an online portal in real time. [Link](https://data.
 
 ## Data visualize ##
 * **Country Wise Comparisions:**
-  ![Country Comparisions](../../Corona%20Affected%20Country/plotly/Images/Covid%20confirmation%20cases%20compared%20by%20country.png)
+  ![Country Comparisions](images/covid_line.png)
 * **Worldwide Affected Statistics:**
-  ![Affected Statistics](../../Corona%20Affected%20Country/plotly/Images/Top%2010%20Country%20by%20COVID%20confirmation%20case.png)
+  ![Affected Statistics](images/covid_bar.png)
 
 
 ### Better view available in [Corona Affected Country](../../Corona%20Affected%20Country/plotly/) ###

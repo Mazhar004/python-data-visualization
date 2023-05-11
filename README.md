@@ -1,6 +1,9 @@
 # Python Data Visualization #
 ## **Corona Affected Country [Link](Corona%20Affected%20Country)**
 ![Word Cloud](Corona%20Affected%20Country/plotly/Images/COVID%20death%20casees%20as%20a%20WordCloud.png)
+## STreamlit App [ Link ](Streamlit)
+- Covid App [ Link ](Streamlit/covid/)
+![Covid APP web Interface](Streamlit/covid/images/covid_line.png)
 ## **SSC Scholarship 2023 [ Link ](SSC%20Scholarship%202023)**
 ![ Top 200 Students Stats ](SSC%20Scholarship%202023/data/top%20200.png)
 ## **Kuet Student Gender Ratio(Web Scrapping) [ Link ](Kuet%20Student%20Gender%20Ratio)**
