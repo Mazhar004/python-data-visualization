@@ -28,3 +28,14 @@ st.markdown(repo, unsafe_allow_html=True)
 ### StreamLit View ###
 covid_lines_stats(df)
 covid_bars_stats(df)
+
+# Disable Streamlit menu button and footer
+st.markdown(
+    """
+    <style>
+    #MainMenu, footer {visibility: hidden;}
+    footer {visibility: hidden;}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
