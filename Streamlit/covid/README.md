@@ -11,14 +11,14 @@ Coronavirus rapidly spread out across the world.This is the visual representatio
 
 ### Library Installation
 - Library Install
-  - `pip install -r requirements.txt`
+  - `pip install -r ../requirements.txt`
 
 ### Streamlit App Run(Web View)
 - `streamlit run app.py`
 
 ## Data collection ##
 
-This data was collected from an online portal in real time. [Link](https://data.humdata.org/dataset/novel-coronavirus-2019-ncov-cases)
+This data was collected from an online portal & formatted locally. [Link](https://data.humdata.org/dataset/novel-coronavirus-2019-ncov-cases)
 
 ## Data visualize ##
 * **Country Wise Comparisions:**
