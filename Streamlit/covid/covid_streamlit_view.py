@@ -31,13 +31,7 @@ def covid_lines_stats(df, min_date, max_date, country_list, d_type_list):
         st.plotly_chart(fig, use_container_width=True)
 
 
-def covid_bars_stats(df):
-    # Top Country
-    d_type_list = df['Dataset'].unique().tolist()
-
-    min_date = min(df.columns[2:]).date()
-    max_date = max(df.columns[2:]).date()
-
+def covid_bars_stats(df, min_date, max_date, d_type_list):
     st.subheader('Top Countries Affected by COVID-19')
 
     col1, col2 = st.columns([1, 3])
@@ -49,9 +43,13 @@ def covid_bars_stats(df):
         date_range = st.slider("Select a date range", min_value=min_date,
                                max_value=max_date, value=(min_date, max_date), key='Bar Date')
     with col2:
-        temp_df = dtype_filter(df, [d_types])
-        temp_df = date_filter(temp_df, date_range[0], date_range[1])
-        temp_df = build_bar_data(temp_df)
+        temp_df = df.loc[d_types]
+
+        st_index = (date_range[0]-min_date).days+2
+        lt_index = (date_range[1] - date_range[0]).days + st_index
+        temp_df = date_filter(temp_df, st_index, lt_index)
+
+        temp_df = build_bar_data(temp_df, d_types)
 
         fig = covid_analyze_bars(
             temp_df, d_types, date_range[0], date_range[1], top_k)
