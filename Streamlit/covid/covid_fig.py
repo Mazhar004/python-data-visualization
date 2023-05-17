@@ -6,19 +6,18 @@ from utils import get_color
 
 
 def covid_analyze_lines(fill_df):
-    s_date = fill_df.columns[2].strftime('%d %b, %y')
-    e_date = fill_df.columns[-1].strftime('%d %b, %y')
+    col = fill_df.columns
+    s_date = col[0].strftime('%d %b, %y')
+    e_date = col[-1].strftime('%d %b, %y')
 
     # Create a list of traces for each country
     traces = []
-    for country, c_df in fill_df.groupby('Country'):
-        for d_type, t_df in c_df.groupby('Dataset'):
-            t_df = t_df.iloc[:, 2:]
-            trace = go.Scatter(x=t_df.columns,
-                               y=t_df.values[0],
-                               mode='lines',
-                               name=f'{d_type}, {country}')
-            traces.append(trace)
+    for indexes, t_df in fill_df.groupby(['Dataset', 'Country']):
+        trace = go.Scatter(x=t_df.columns,
+                           y=t_df.values[0],
+                           mode='lines',
+                           name=f'{indexes[0]}, {indexes[1]}')
+        traces.append(trace)
 
     layout = go.Layout(title=f'COVID Status from "{s_date}" to "{e_date}"',
                        xaxis=dict(title='Date'),
