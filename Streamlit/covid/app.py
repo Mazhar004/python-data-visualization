@@ -13,14 +13,20 @@ repo = f'[![GitHub Repo]({github_logo})]({repo_url})'
 
 
 def date_conv(str_date, format='%Y-%m-%d'):
-    str_date = datetime.datetime.strptime(str_date, format)
+    str_date = datetime.datetime.strptime(str_date, format).date()
     return str_date
 
 
-df = pd.read_csv('../../Corona Affected Country/plotly/data/full_stats.csv')
-date_formatted = {item: date_conv(item) for item in df.columns[2:]}
-df = df.rename(columns=date_formatted).replace({-1: 0})
+csv_path = '../../Corona Affected Country/plotly/data/full_stats.csv'
+df_index = ['Dataset', 'Country']
+df = pd.read_csv(csv_path, index_col=df_index)
+df = df.rename(columns=date_conv)
+cols = df.columns
 
+# Arguments
+min_date, max_date = min(cols), max(cols)
+d_type_list = df.index.get_level_values(0).unique()
+country_list = df.index.get_level_values(1).unique()
 
 st.set_page_config(page_title="COVID Stats", layout="wide")
 st.markdown(repo, unsafe_allow_html=True)
@@ -36,5 +42,5 @@ st.markdown(
 )
 
 ### StreamLit View ###
-covid_lines_stats(df)
-covid_bars_stats(df)
+covid_lines_stats(df, min_date, max_date, country_list, d_type_list)
+covid_bars_stats(df, min_date, max_date, d_type_list)
