@@ -28,3 +28,9 @@ def hour_format(x):
     return f'{x} {flag}'
 
 
+def individual_count(person_df, field, col_name='Frequency'):
+    temp_df = person_df[field].value_counts().to_frame(name=col_name)
+    temp_df.index.name = 'Field'
+    return temp_df
+
+
