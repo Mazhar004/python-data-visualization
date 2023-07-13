@@ -30,3 +30,13 @@ def single_field_filter(df, key, value):
     return df
 
 
+def multiple_field_filter(df, field_dict):
+    '''
+    # Direction [Incoming or Outgoing]
+    # Status [Answered or Unanswered or Missed or 'Call Rejected']
+    # Contact [Saved or Unsaved]
+    '''
+    fil_df = df.copy()
+    for key, value in field_dict.items():
+        fil_df = single_field_filter(fil_df, key, value)
+    return fil_df
