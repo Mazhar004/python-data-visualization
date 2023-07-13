@@ -17,3 +17,16 @@ def df_formatting(df):
     return df
 
 
+def single_field_filter(df, key, value):
+    if key == 'Contact':
+        bool_list = df['Name'] == df['Address'].astype(str)
+        if value == 'Saved':
+            df = df[~bool_list]
+        else:
+            df = df[bool_list]
+
+    else:
+        df = df[df[key] == value]
+    return df
+
+
