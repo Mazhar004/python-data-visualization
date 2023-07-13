@@ -34,3 +34,8 @@ def individual_count(person_df, field, col_name='Frequency'):
     return temp_df
 
 
+def individual_group(person_df, func, index, col_name='Frequency'):
+    temp_df = person_df.groupby('Direction').apply(func).to_frame(col_name)
+    temp_df = temp_df.rename(index=index)
+    temp_df.index.name = 'Field'
+    return temp_df
