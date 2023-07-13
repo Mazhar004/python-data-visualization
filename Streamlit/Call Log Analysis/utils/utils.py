@@ -11,3 +11,20 @@ def average_total_sec(df):
 def frequency_count(df):
     count_val = df.Duration.count()
     return count_val
+
+
+def hour_format(x):
+    flag = 'AM'
+
+    if x == 0:
+        return f'12 {flag}'
+
+    if x > 11:
+        flag = 'PM'
+
+    if x > 12:
+        x = x % 12
+
+    return f'{x} {flag}'
+
+
