@@ -8,3 +8,12 @@ def time_conv(time_val):
     else:
         m, s = map(int, time_val.split(':'))
     return timedelta(minutes=m, seconds=s)
+
+
+def df_formatting(df):
+    fotmat = "%m/%d/%Y (%I:%M:%S %p)"
+    df['Date'] = pd.to_datetime(df['Date'], format=fotmat)
+    df['Duration'] = df['Duration'].apply(time_conv)
+    return df
+
+
