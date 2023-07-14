@@ -36,7 +36,7 @@ def dataframe_load(filename):
     return df
 
 
-filename = 'data/Artifical_Call_Log_Data.csv'
+filename = 'NoteBook/data/Artifical_Call_Log_Data.csv'
 df = dataframe_load(filename)
 
 # Consider Only Saved Contacts
