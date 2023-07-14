@@ -94,3 +94,12 @@ def rejected_call_by_other():
     kwrgs = {'field_dict': field_dict, 'group_by': group_by, 'function': frequency_count,
              'col_name': col_name, 'title': title}
     return kwrgs
+
+
+func_dict = {'Total Incoming VS Outgoing': total_in_vs_out,
+             'Total Duration of Calls with Each Person': person_wise_total_call,
+             'Average Talk-Time with Each Person': avg_talktime,
+             'Who gave me Most Missed Call': missed_call,
+             'Call Rejected by Me': rejected_call_by_me,
+             'My Call Rejected by Other': rejected_call_by_other
+             }
