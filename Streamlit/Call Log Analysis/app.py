@@ -48,3 +48,13 @@ sep_method = ['My Call Schedule', 'Person Wise Analysis']
 methods = list(func_dict.keys())+sep_method
 contact_name = df['Name'].unique().tolist()
 
+
+st.subheader('Analyze Your Call Records')
+col1, col2 = st.columns([1, 1])
+
+with col1:
+    choosen_method = st.selectbox("Methods",
+                                  methods,
+                                  key='Methods')
+
+
