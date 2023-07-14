@@ -44,3 +44,17 @@ def time_fig_generate(df, group_by, function, col_name, title, fig_attr={}):
     return fig
 
 
+def call_time_fig(df, name='My'):
+    field_dict = {'Status': 'Answered'}
+    fil_df = multiple_field_filter(df, field_dict)
+
+    group_by = ['Hour', 'Direction']
+    col_name = 'Frequency'
+    title = f'{name} Call Schedule'
+    fig_attr = {'color': 'Direction', 'barmode': 'group'}
+
+    fig = time_fig_generate(fil_df, group_by, frequency_count, col_name, title,
+                            fig_attr)
+    return fig
+
+
