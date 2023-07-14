@@ -58,3 +58,24 @@ with col1:
                                   key='Methods')
 
 
+if choosen_method in sep_method:
+    if choosen_method == 'My Call Schedule':
+        fig = call_time_fig(df)
+        st.plotly_chart(fig, use_container_width=True)
+    else:
+        with col2:
+            choosen_name = st.selectbox("Name",
+                                        contact_name,
+                                        key='Name')
+
+        fig1, fig2 = person_wise_stats(df, choosen_name)
+        st.plotly_chart(fig1, use_container_width=True)
+        st.plotly_chart(fig2, use_container_width=True)
+
+else:
+    kwrgs = func_dict[choosen_method]()
+    field_dict = kwrgs.pop('field_dict')
+
+    fil_df = multiple_field_filter(df, field_dict)
+    fig = generate_fig(fil_df, **kwrgs)
+    st.plotly_chart(fig, use_container_width=True)
