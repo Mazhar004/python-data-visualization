@@ -44,3 +44,7 @@ field_dict = {'Contact': 'Saved'}
 df = multiple_field_filter(df, field_dict)
 
 
+sep_method = ['My Call Schedule', 'Person Wise Analysis']
+methods = list(func_dict.keys())+sep_method
+contact_name = df['Name'].unique().tolist()
+
