@@ -1,3 +1,5 @@
+import os
+
 # Data Processing
 import pandas as pd
 
@@ -35,8 +37,8 @@ def dataframe_load(filename):
     df = df_formatting(df)
     return df
 
-
-filename = 'NoteBook/data/Artifical_Call_Log_Data.csv'
+current_dir = os.path.dirname(os.path.abspath(__file__))
+filename = os.path.join(current_dir,'NoteBook/data/Artifical_Call_Log_Data.csv')
 df = dataframe_load(filename)
 
 # Consider Only Saved Contacts
