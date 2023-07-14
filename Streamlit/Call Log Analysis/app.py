@@ -39,3 +39,8 @@ def dataframe_load(filename):
 filename = 'data/Artifical_Call_Log_Data.csv'
 df = dataframe_load(filename)
 
+# Consider Only Saved Contacts
+field_dict = {'Contact': 'Saved'}
+df = multiple_field_filter(df, field_dict)
+
+
