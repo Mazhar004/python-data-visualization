@@ -25,3 +25,22 @@ def generate_fig(df,
     fig = px.bar(temp_df, x=group_by[0], y=col_name, title=title, **fig_attr)
     return fig
 
+
+def time_fig_generate(df, group_by, function, col_name, title, fig_attr={}):
+    fil_df = df.copy()
+    fil_df['Hour'] = fil_df.Date.apply(lambda x: x.hour)
+
+    fil_df = fil_df.groupby(group_by).apply(function)
+    fil_df = fil_df.to_frame(name=col_name).reset_index()
+    fil_df['Hour_Hover'] = fil_df.Hour.apply(hour_format)
+
+    fil_df = fil_df.sort_values(by='Hour', ascending=False)
+    fig = px.bar(fil_df,
+                 x=group_by[0],
+                 y=col_name,
+                 title=title,
+                 hover_name='Hour_Hover',
+                 **fig_attr)
+    return fig
+
+
