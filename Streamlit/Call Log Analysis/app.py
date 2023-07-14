@@ -28,3 +28,14 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+
+@st.cache_data
+def dataframe_load(filename):
+    df = pd.read_csv(filename)
+    df = df_formatting(df)
+    return df
+
+
+filename = 'data/Artifical_Call_Log_Data.csv'
+df = dataframe_load(filename)
+
