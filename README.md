@@ -25,14 +25,14 @@
   40 out of 200 after rescaling in percentage:
   output = 
   ```
-  ![ Progress Bar ](Progress%20Bar/progress%20bar.png)
+  ![ Progress Bar ](ProgressBar/images/progress%20bar.png)
 
 ## **Geometric Shape [ Link ](Geometric%20Shape)**
   ``` 
     Example for crown:
     n=5 
   ```
-  ![A Crown](Geometric%20Shape/Crown.png)
+  ![A Crown](GeometricShape/images/Crown.png)
     
    * This problem is solved for:
       * Triangle
