@@ -1,3 +1,4 @@
+import os
 import datetime
 import pandas as pd
 
@@ -16,8 +17,10 @@ def date_conv(str_date, format='%Y-%m-%d'):
     str_date = datetime.datetime.strptime(str_date, format).date()
     return str_date
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+root = os.path.dirname(os.path.dirname(current_dir))
+csv_path = os.path.join(root,'CoronaAffectedCountry/Plotly/data/full_stats.csv')
 
-csv_path = '../../Corona Affected Country/plotly/data/full_stats.csv'
 df_index = ['Dataset', 'Country']
 df = pd.read_csv(csv_path, index_col=df_index)
 df = df.rename(columns=date_conv)
@@ -35,7 +38,6 @@ st.markdown(
     """
     <style>
     #MainMenu, footer {visibility: hidden;}
-    footer {visibility: hidden;}
     </style>
     """,
     unsafe_allow_html=True

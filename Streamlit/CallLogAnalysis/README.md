@@ -23,7 +23,7 @@ Following ideas have been tried out so far:
 
 ### Library Installation
 - Library Install
-  - `pip install -r ../requirements.txt`
+  - `pip install -r requirements.txt`
 
 ### Streamlit App Run(Web View)
 - `streamlit run app.py`
