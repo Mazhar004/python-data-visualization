@@ -17,12 +17,12 @@ Such as triangle,square etc.
   ![A Crown ](images/Crown.png)
     
  * This problem is solved for :
-  * Command Line Print [Shape](shape.ipynb)
+  * Command Line Print [Shape](Shape.ipynb)
     * Triangle
     * Right triangle
     * Square
     * Rectangle
     * Crown
-  * Graphical Plot [Advanced Shape](advanced_shape.ipynb):
+  * Graphical Plot [Advanced Shape](Advanced%20Shape.ipynb):
     * Rectangle
     * Circle
