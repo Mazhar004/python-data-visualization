@@ -10,15 +10,15 @@ This data was collected from an online portal in real time. [Link](https://data.
 
 ## Data visualize ##
 * **Word Cloud:**
-  ![Word Cloud](Images/COVID%20death%20casees%20as%20a%20WordCloud.png)
+  ![Word Cloud](images/COVID%20death%20casees%20as%20a%20WordCloud.png)
 * **Country Wise Comparisions:**
-  ![Country Comparisions](Images/Covid%20confirmation%20cases%20compared%20by%20country.png)
+  ![Country Comparisions](images/Covid%20confirmation%20cases%20compared%20by%20country.png)
 * **Country Statistics Graph:**
-  ![Country Statistics Graph](Images/US%20COVID%20stats%20analyze%20by%20line%20chart.png)
+  ![Country Statistics Graph](images/US%20COVID%20stats%20analyze%20by%20line%20chart.png)
 * **Country Statistics:**
-  ![Country Statistics](Images/Country%20wise%20COVID%20Case%20study.png)
+  ![Country Statistics](images/Country%20wise%20COVID%20Case%20study.png)
 * **Worldwide Affected Statistics:**
-  ![Affected Statistics](Images/Top%2010%20Country%20by%20COVID%20confirmation%20case.png)
+  ![Affected Statistics](images/Top%2010%20Country%20by%20COVID%20confirmation%20case.png)
 
 
 ## Country included in this Dataset:

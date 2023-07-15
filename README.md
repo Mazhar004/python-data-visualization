@@ -1,6 +1,6 @@
 # Python Data Visualization #
-## **Corona Affected Country [Link](Corona%20Affected%20Country)**
-![Word Cloud](Corona%20Affected%20Country/plotly/Images/COVID%20death%20casees%20as%20a%20WordCloud.png)
+## **Corona Affected Country [Link](CoronaAffectedCountry)**
+![Word Cloud](CoronaAffectedCountry/Plotly/images/COVID%20death%20casees%20as%20a%20WordCloud.png)
 ## Streamlit App [ Link ](Streamlit)
 - Covid App [ Link ](Streamlit/covid/)
 ![Covid APP web Interface](Streamlit/covid/images/covid_line.png)
