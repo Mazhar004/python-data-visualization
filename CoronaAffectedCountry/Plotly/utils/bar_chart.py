@@ -12,7 +12,7 @@ def handle_recovered(df):
     col = max(df.columns)
 
     col_list = df.apply(get_index, axis=1).to_dict()
-    filter_series = full_df.apply(lambda x: x[col_list[x.name]], axis=1)
+    filter_series = df.apply(lambda x: x[col_list[x.name]], axis=1)
 
     df = pd.DataFrame(filter_series, columns=[col])
     return df, col
