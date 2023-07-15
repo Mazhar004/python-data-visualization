@@ -13,7 +13,7 @@ from utils.preprocessing import df_formatting, multiple_field_filter
 
 
 github_logo = 'https://img.shields.io/badge/GitHub-Repo-blue?logo=github'
-repo_url = 'https://github.com/Mazhar004/python-data-visualization/tree/master/Streamlit/Call%20Log%20Analysis'
+repo_url = 'https://github.com/Mazhar004/python-data-visualization/tree/master/Streamlit/CallLogAnalysis'
 repo = f'[![GitHub Repo]({github_logo})]({repo_url})'
 
 st.set_page_config(page_title="Call Stats", layout="wide")
