@@ -4,8 +4,8 @@
 ## Streamlit App [ Link ](Streamlit)
 - Covid App [ Link ](Streamlit/covid/)
 ![Covid APP web Interface](Streamlit/covid/images/covid_line.png)
-- Call Log Analysis [ Link ](Streamlit/Call%20Log%20Analysis/)
-![Call Log Analysis web Interface](Streamlit/Call%20Log%20Analysis/Images/Person_Wise_Analysis.png)
+- Call Log Analysis [ Link ](Streamlit/CallLogAnalysis/)
+![Call Log Analysis web Interface](Streamlit/CallLogAnalysis/images/Person_Wise_Analysis.png)
 ## **SSC Scholarship 2023 [ Link ](SSCScholarship)**
 ![ Top 200 Students Stats ](SSCScholarship/images/top%20200.png)
 ## **Kuet Student Gender Ratio(Web Scrapping) [ Link ](KuetStudentGenderRatio)**
