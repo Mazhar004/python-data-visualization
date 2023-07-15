@@ -11,14 +11,14 @@
 ## **Kuet Student Gender Ratio(Web Scrapping) [ Link ](Kuet%20Student%20Gender%20Ratio)**
 ![Gender ratio](Kuet%20Student%20Gender%20Ratio/Images/Percentage%20of%20Boys%20%26%20Girls%20Department%20wise%20in%20KUET%20(27%20October%202019).png)
   
-## **Matplot 2D & 3D [ Link ](Matplot%202D%20%26%203D)**
+## **Matplot 2D & 3D [ Link ](Matplot2D3D)**
 
-  ![ Heart ](Matplot%202D%20%26%203D/Images/Heart.png)
+  ![ Heart ](Matplot2D3D/images/Heart.png)
   * There is also:
       * 3D Normal distribution shape
       * Prime number shape
       * Random sine shape
-## **Progress Bar [ Link ](Progress%20Bar)**
+## **Progress Bar [ Link ](ProgressBar)**
   ```
   Example:
   value, maximum = 40 200
@@ -27,7 +27,7 @@
   ```
   ![ Progress Bar ](ProgressBar/images/progress%20bar.png)
 
-## **Geometric Shape [ Link ](Geometric%20Shape)**
+## **Geometric Shape [ Link ](GeometricShape)**
   ``` 
     Example for crown:
     n=5 
