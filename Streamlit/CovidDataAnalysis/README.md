@@ -11,7 +11,7 @@ Coronavirus rapidly spread out across the world.This is the visual representatio
 
 ### Library Installation
 - Library Install
-  - `pip install -r ../requirements.txt`
+  - `pip install -r requirements.txt`
 
 ### Streamlit App Run(Web View)
 - `streamlit run app.py`
@@ -27,4 +27,4 @@ This data was collected from an online portal & formatted locally. [Link](https:
   ![Affected Statistics](images/covid_bar.png)
 
 
-### Better view available in [Corona Affected Country](../../Corona%20Affected%20Country/plotly/) ###
+### Better view available in [Corona Affected Country](../../CoronaAffectedCountry/Plotly/) ###

@@ -2,8 +2,8 @@
 ## **Corona Affected Country [Link](CoronaAffectedCountry)**
 ![Word Cloud](CoronaAffectedCountry/Plotly/images/COVID%20death%20casees%20as%20a%20WordCloud.png)
 ## Streamlit App [ Link ](Streamlit)
-- Covid App [ Link ](Streamlit/covid/)
-![Covid APP web Interface](Streamlit/covid/images/covid_line.png)
+- Covid App [ Link ](Streamlit/CovidDataAnalysis/)
+![Covid APP web Interface](Streamlit/CovidDataAnalysis/images/covid_line.png)
 - Call Log Analysis [ Link ](Streamlit/CallLogAnalysis/)
 ![Call Log Analysis web Interface](Streamlit/CallLogAnalysis/images/Person_Wise_Analysis.png)
 ## **SSC Scholarship 2023 [ Link ](SSCScholarship)**
