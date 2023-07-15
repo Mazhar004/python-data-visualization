@@ -15,6 +15,6 @@ Publicly available SSC 2022 Scholarship, PDF data extract & visualize:
 
 Example Visualization:
 
-![ Total Students Stats ](data/total.png)
+![ Total Students Stats ](images/total.png)
 
-![ Top 200 Students Stats ](data/top%20200.png)
+![ Top 200 Students Stats ](images/top%20200.png)
