@@ -14,7 +14,7 @@ Such as triangle,square etc.
     Example for crown:
     n=5 
   ```
-  ![A Crown ](Crown.png)
+  ![A Crown ](images/Crown.png)
     
  * This problem is solved for :
   * Command Line Print [Shape](shape.ipynb)
