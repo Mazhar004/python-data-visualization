@@ -22,4 +22,4 @@ This data was collected from an online portal in real time. [Link](https://data.
 
 
 ## Country included in this Dataset:
-- List available in the Plotly [README.md](../plotly/README.md) file
+- List available in the Plotly [README.md](../Plotly/README.md) file
