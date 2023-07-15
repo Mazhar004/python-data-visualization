@@ -6,18 +6,18 @@ from datetime import datetime
 import pandas as pd
 
 # Custom Library
-from library.graph_data_extract import graph_data_extract
+from utils.graph_data_extract import graph_data_extract
 
 
 class CovidStatExtract():
-    def __init__(self, threshold):
-        os.makedirs('CSV', exist_ok=True)
+    def __init__(self, threshold, online=False):
+        os.makedirs('data', exist_ok=True)
         try:
-            self.df = self.all_cases_form(graph_data_extract())
+            self.df = self.all_cases_form(graph_data_extract(online=online))
             self.csv_form()
-            self.df.to_csv('CSV/Stat_updated.csv', index=True)
+            self.df.to_csv('data/Stat_updated.csv', index=True)
         except:
-            self.df = pd.read_csv('CSV/Stat_updated.csv',
+            self.df = pd.read_csv('data/Stat_updated.csv',
                                   index_col='Country/Region')
             for i in self.df.columns[:-1]:
                 self.df[i] = pd.to_numeric(self.df[i])
@@ -69,6 +69,6 @@ class CovidStatExtract():
         self.df = pd.concat([self.df, date], axis=1)
 
 
-def stat_data_extract(threshold):
-    data = CovidStatExtract(threshold)
+def stat_data_extract(threshold, online=False):
+    data = CovidStatExtract(threshold, online)
     return data.df

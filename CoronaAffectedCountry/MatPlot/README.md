@@ -10,16 +10,16 @@ This data was collected from an online portal in real time. [Link](https://data.
 
 ## Data visualize ##
 * **Word Cloud:**
-  ![Word Cloud](Images/Corona%20Stats%20Country%20wise.png)
+  ![Word Cloud](images/Corona%20Stats%20Country%20wise.png)
 * **Country Wise Comparisions:**
-  ![Country Comparisions](Images/COVID-19%20Confirmed%20Cases%20Comparision%20Graph%20in%20Czechia%20Netherlands%20Bangladesh%20Turkey.png)
+  ![Country Comparisions](images/COVID-19%20Confirmed%20Cases%20Comparision%20Graph%20in%20Czechia%20Netherlands%20Bangladesh%20Turkey.png)
 * **Country Statistics Graph:**
-  ![Country Statistics Graph](Images/US%20COVID-19%20Graph.png)
+  ![Country Statistics Graph](images/US%20COVID-19%20Graph.png)
 * **Country Statistics:**
-  ![Country Statistics](Images/Corona.png)
+  ![Country Statistics](images/Corona.png)
 * **Worldwide Affected Statistics:**
-  ![Affected Statistics](Images/Corona%20World%20Wise%20Active.png)
+  ![Affected Statistics](images/Corona%20World%20Wise%20Active.png)
 
 
 ## Country included in this Dataset:
-- List available in the Plotly [README.md](../plotly/README.md) file
+- List available in the Plotly [README.md](../Plotly/README.md) file
