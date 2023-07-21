@@ -1,8 +1,9 @@
-# Data visulization using Streamlit #
+# Covid-19 Data visulization using Streamlit #
 
 ## Description: ##
 
 Coronavirus rapidly spread out across the world.This is the visual representation of affected,recovered & death people in numbers.In this visulization data was represented by country & worldwide wise.
+- [ Streamlit Web View ](https://visualcovid.streamlit.app/)
 
 ## Installation
 

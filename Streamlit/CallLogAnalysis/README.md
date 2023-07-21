@@ -1,8 +1,9 @@
-# Data visulization using Streamlit #
+# Call Log Data visulization using Streamlit #
 
 ## Description: ##
 
 **Call Log Analysis** aims to provide various methodologies and approaches to analyze call logs, extracting hidden insights and enhancing our understanding of communication patterns.
+- [ Streamlit Web View  ](https://calllog.streamlit.app/)
 
 Following ideas have been tried out so far:
 - **Total number of calls** with each person (Incoming vs Outgoing)
