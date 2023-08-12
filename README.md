@@ -6,6 +6,8 @@
 ![Covid APP web Interface](Streamlit/CovidDataAnalysis/images/covid_line.png)
 - Call Log Analysis [ Link ](Streamlit/CallLogAnalysis/) || [ Web View ](https://calllog.streamlit.app/)
 ![Call Log Analysis web Interface](Streamlit/CallLogAnalysis/images/Person_Wise_Analysis.png)
+- BD Banks Analysis [ Link ](Streamlit/BangladeshBankDeposit/) || [ Web View ](https://bdbankanalysis.streamlit.app/)
+![BD Banks Analysis web Interface](Streamlit/BangladeshBankDeposit/images/bank_wise.png)
 ## **SSC Scholarship 2023 [ Link ](SSCScholarship)**
 ![ Top 200 Students Stats ](SSCScholarship/images/top%20200.png)
 ## **Kuet Student Gender Ratio(Web Scrapping) [ Link ](KuetStudentGenderRatio)**
