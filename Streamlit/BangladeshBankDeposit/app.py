@@ -51,7 +51,7 @@ def data_load(csv_path):
 # Dynamic filepath load
 current_dir = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(os.path.dirname(current_dir))
-filename = "Streamlit\BangladeshBankDeposit\data\Processed_11 Aug 2023.csv"
+filename = "Streamlit/BangladeshBankDeposit/data/Processed_11 Aug 2023.csv"
 csv_path = os.path.join(root, filename)
 
 # Data Load
