@@ -2,36 +2,32 @@ from time import sleep
 
 
 def progress_bar(value, maximum):
-    '''
-        def progress_bar(value, maximum):
-            Will print progress bar for data loading status rescaling in percentage.
-            
-            value   = Value that will be loaded
-            maximum = Maximum value for scaling 
-            
-            Example:
-                Such as 40 out of 200
-                
-                value   = 40
-                maximum = 200
-            
-    '''
-    value = int((value/maximum)*100)
-    for i in range(1, value+1):
-        sleep(.3)
-        rightbar, leftbar, inchar, emptychar, width = "▌", " ▌", "█", '▬', 100
-        fill_val = inchar*i
-        empty_val = emptychar*(width-i)
-        status = str(int((i/width)*100))
-        if i == value:
-            status += "%  Loaded"
-        else:
-            status += "% Loading"
-        print(rightbar+fill_val+empty_val+leftbar+status, end="\r")
-    print("\n")
+    """Print a visual progress bar rescaled to percentage.
+
+    Args:
+        value: Current progress value.
+        maximum: Maximum value for scaling.
+    """
+    percentage = int((value / maximum) * 100)
+
+    right_bar = "\u258c"
+    left_bar = " \u258c"
+    fill_char = "\u2588"
+    empty_char = "\u252c"
+    width = 100
+
+    for i in range(1, percentage + 1):
+        sleep(0.3)
+        filled = fill_char * i
+        empty = empty_char * (width - i)
+        status = f"{int((i / width) * 100)}%"
+        status += "  Loaded" if i == percentage else " Loading"
+        print(f"{right_bar}{filled}{empty}{left_bar}{status}", end="\r")
+
+    print()
 
 
-if __name__ == '__main__':
-    value, maximum = map(int, input("Input value & maximum = ").split(' '))
-    print("\n")
+if __name__ == "__main__":
+    value, maximum = map(int, input("Input value & maximum = ").split())
+    print()
     progress_bar(value, maximum)

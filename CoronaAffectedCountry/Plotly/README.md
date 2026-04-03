@@ -1,209 +1,88 @@
-# Data visulization in Python3 #
+# COVID-19 Global Data Visualization
 
-## Description: ##
+Interactive visualizations of worldwide COVID-19 statistics -- confirmed cases, recoveries, and deaths -- built with Plotly and Pandas. The project provides multiple chart types to explore and compare pandemic data across 185+ countries.
 
-Coronavirus rapidly spread out across the world.This is the visual representation of affected,recovered & death people in numbers.In this visulization data was represented by country & worldwide wise.
+## Features
 
-## Data collection ##
+- **Top-N Bar Charts** -- Rank countries by confirmed, recovered, or death counts with color-coded bars.
+- **Stacked Bar Charts** -- Compare confirmed, recovered, and death figures side by side for the most affected countries.
+- **Time-Series Line Charts** -- Track how case counts evolved over time for individual countries or multi-country comparisons.
+- **Word Clouds** -- Visualize relative case magnitude across countries at a glance.
+- **Flexible Data Fetching** -- Pull live data from the CSSE COVID-19 time-series repository or work offline with a local CSV cache.
 
-This data was collected from an online portal in real time. [Link](https://data.humdata.org/dataset/novel-coronavirus-2019-ncov-cases)
+## Sample Visualizations
 
-## Data visualize ##
-* **Word Cloud:**
-  ![Word Cloud](images/COVID%20death%20casees%20as%20a%20WordCloud.png)
-* **Country Wise Comparisions:**
-  ![Country Comparisions](images/Covid%20confirmation%20cases%20compared%20by%20country.png)
-* **Country Statistics Graph:**
-  ![Country Statistics Graph](images/US%20COVID%20stats%20analyze%20by%20line%20chart.png)
-* **Country Statistics:**
-  ![Country Statistics](images/Country%20wise%20COVID%20Case%20study.png)
-* **Worldwide Affected Statistics:**
-  ![Affected Statistics](images/Top%2010%20Country%20by%20COVID%20confirmation%20case.png)
+### Stacked Bar Chart -- Cases by Country
 
+![Stacked Bar Chart](../MatPlot/images/Country%20wise%20COVID%20Case%20study.png)
 
-## Country included in this Dataset:
-    1.   Afghanistan
-    2.   Albania
-    3.   Algeria
-    4.   Andorra
-    5.   Angola
-    6.   Antigua and Barbuda
-    7.   Argentina
-    8.   Armenia
-    9.   Australia
-    10.  Austria
-    11.  Azerbaijan
-    12.  Bahamas
-    13.  Bahrain
-    14.  Bangladesh
-    15.  Barbados
-    16.  Belarus
-    17.  Belgium
-    18.  Belize
-    19.  Benin
-    20.  Bhutan
-    21.  Bolivia
-    22.  Bosnia and Herzegovina
-    23.  Botswana
-    24.  Brazil
-    25.  Brunei
-    26.  Bulgaria
-    27.  Burkina Faso
-    28.  Burma
-    29.  Burundi
-    30.  Cabo Verde
-    31.  Cambodia
-    32.  Cameroon
-    33.  Canada
-    34.  Central African Republic
-    35.  Chad
-    36.  Chile
-    37.  China
-    38.  Colombia
-    39.  Congo (Brazzaville)
-    40.  Congo (Kinshasa)
-    41.  Costa Rica
-    42.  Cote d'Ivoire
-    43.  Croatia
-    44.  Cuba
-    45.  Cyprus
-    46.  Czechia
-    47.  Denmark
-    48.  Diamond Princess
-    49.  Djibouti
-    50.  Dominica
-    51.  Dominican Republic
-    52.  Ecuador
-    53.  Egypt
-    54.  El Salvador
-    55.  Equatorial Guinea
-    56.  Eritrea
-    57.  Estonia
-    58.  Eswatini
-    59.  Ethiopia
-    60.  Fiji
-    61.  Finland
-    62.  France
-    63.  Gabon
-    64.  Gambia
-    65.  Georgia
-    66.  Germany
-    67.  Ghana
-    68.  Greece
-    69.  Grenada
-    70.  Guatemala
-    71.  Guinea
-    72.  Guinea-Bissau
-    73.  Guyana
-    74.  Haiti
-    75.  Holy See
-    76.  Honduras
-    77.  Hungary
-    78.  Iceland
-    79.  India
-    80.  Indonesia
-    81.  Iran
-    82.  Iraq
-    83.  Ireland
-    84.  Israel
-    85.  Italy
-    86.  Jamaica
-    87.  Japan
-    88.  Jordan
-    89.  Kazakhstan
-    90.  Kenya
-    91.  Korea, South
-    92.  Kosovo
-    93.  Kuwait
-    94.  Kyrgyzstan
-    95.  Laos
-    96.  Latvia
-    97.  Lebanon
-    98.  Liberia
-    99.  Libya
-    100. Liechtenstein
-    101. Lithuania
-    102. Luxembourg
-    103. MS Zaandam
-    104. Madagascar
-    105. Malawi
-    106. Malaysia
-    107. Maldives
-    108. Mali
-    109. Malta
-    110. Mauritania
-    111. Mauritius
-    112. Mexico
-    113. Moldova
-    114. Monaco
-    115. Mongolia
-    116. Montenegro
-    117. Morocco
-    118. Mozambique
-    119. Namibia
-    120. Nepal
-    121. Netherlands
-    122. New Zealand
-    123. Nicaragua
-    124. Niger
-    125. Nigeria
-    126. North Macedonia
-    127. Norway
-    128. Oman
-    129. Pakistan
-    130. Panama
-    131. Papua New Guinea
-    132. Paraguay
-    133. Peru
-    134. Philippines
-    135. Poland
-    136. Portugal
-    137. Qatar
-    138. Romania
-    139. Russia
-    140. Rwanda
-    141. Saint Kitts and Nevis
-    142. Saint Lucia
-    143. Saint Vincent and the Grenadines
-    144. San Marino
-    145. Sao Tome and Principe
-    146. Saudi Arabia
-    147. Senegal
-    148. Serbia
-    149. Seychelles
-    150. Sierra Leone
-    151. Singapore
-    152. Slovakia
-    153. Slovenia
-    154. Somalia
-    155. South Africa
-    156. South Sudan
-    157. Spain
-    158. Sri Lanka
-    159. Sudan
-    160. Suriname
-    161. Sweden
-    162. Switzerland
-    163. Syria
-    164. Taiwan*
-    165. Tanzania
-    166. Thailand
-    167. Timor-Leste
-    168. Togo
-    169. Trinidad and Tobago
-    170. Tunisia
-    171. Turkey
-    172. US
-    173. Uganda
-    174. Ukraine
-    175. United Arab Emirates
-    176. United Kingdom
-    177. Uruguay
-    178. Uzbekistan
-    179. Venezuela
-    180. Vietnam
-    181. West Bank and Gaza
-    182. Western Sahara
-    183. Yemen
-    184. Zambia
-    185. Zimbabwe
+### Top 10 Countries by Confirmed Cases
+
+![Top 10 Confirmed](../MatPlot/images/Top%2010%20Country%20by%20COVID%20confirmation%20case.png)
+
+### US COVID-19 Stats Over Time
+
+![US Stats Line Chart](../MatPlot/images/US%20COVID%20stats%20analyze%20by%20line%20chart.png)
+
+### Death Cases as a Word Cloud
+
+![Word Cloud](../MatPlot/images/COVID%20death%20casees%20as%20a%20WordCloud.png)
+
+## Tech Stack
+
+| Tool | Purpose |
+|------|---------|
+| Python 3 | Core language |
+| Plotly | Interactive charts (bar, line, image traces) |
+| Plotly Express | High-level stacked bar charts |
+| Pandas | Data loading, aggregation, and transformation |
+| WordCloud | Word cloud generation from frequency data |
+| Jupyter Notebook | Exploratory analysis and visualization |
+
+## Data Sources
+
+COVID-19 time-series data is sourced from the **CSSE COVID-19 Dataset** (Johns Hopkins University), accessed through the Humanitarian Data Exchange:
+
+- Confirmed cases -- `time_series_covid19_confirmed_global.csv`
+- Recovered cases -- `time_series_covid19_recovered_global.csv`
+- Deaths -- `time_series_covid19_deaths_global.csv`
+
+The dataset covers 185+ countries and territories from early 2020 onward.
+
+## How to Run
+
+1. **Install dependencies**
+
+   ```bash
+   pip install plotly pandas wordcloud notebook
+   ```
+
+2. **Launch Jupyter Notebook**
+
+   ```bash
+   cd CoronaAffectedCountry/Plotly
+   jupyter notebook
+   ```
+
+3. **Open a notebook**
+
+   - `Bar Chart.ipynb` -- bar charts, stacked bars, and word clouds.
+   - `Graph Chart.ipynb` -- time-series line charts with country comparisons.
+
+4. **Choose your data source**
+
+   Each notebook calls `get_data()` from `utils/fetch_data.py`. Pass `online=True` to fetch the latest data from the remote repository, or `online=False` to use the local CSV cache in `data/`.
+
+## Project Structure
+
+```
+Plotly/
+├── Bar Chart.ipynb        # Bar charts, stacked bars, and word clouds
+├── Graph Chart.ipynb      # Time-series line charts
+├── README.md
+├── data/
+│   └── full_stats.csv     # Local CSV cache of COVID-19 data
+└── utils/
+    ├── bar_chart.py       # DataFrame formatting and color helpers
+    └── fetch_data.py      # Data fetching (online/offline) and parsing
+```

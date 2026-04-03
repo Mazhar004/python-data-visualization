@@ -1,37 +1,40 @@
 import pandas as pd
 
+DATASET_COLORS = {
+    'Recovered': 'limegreen',
+    'Confirmed': 'darkorange',
+    'Death': 'crimson',
+}
 
-def get_index(row):
+
+def _last_nonzero_index(row):
+    """Return the index of the last non-zero value in a row, or the final index."""
     index = row[row != 0].last_valid_index()
     if index is None:
         return row.index[-1]
     return index
 
 
-def handle_recovered(df):
-    col = max(df.columns)
-
-    col_list = df.apply(get_index, axis=1).to_dict()
-    filter_series = df.apply(lambda x: x[col_list[x.name]], axis=1)
-
-    df = pd.DataFrame(filter_series, columns=[col])
-    return df, col
-
-
-def get_color(df_types):
-    color = {'Recovered': 'limegreen',
-             'Confirmed': 'darkorange', 'Death': 'crimson'}
-    return color.get(df_types)
+def get_color(df_type):
+    """Return the chart color associated with a dataset type."""
+    return DATASET_COLORS.get(df_type)
 
 
 def format_df(df):
+    """Collapse each row to its latest value, handling Recovered data specially.
+
+    For 'Recovered' rows, uses the last non-zero value (since reporting
+    may have stopped). For other rows, uses the most recent column.
+    """
     data = {}
     for index, row in df.iterrows():
-        if index[0] == 'Recovered':
-            index_val = get_index(row)
+        dataset_type = index[0]
+        if dataset_type == 'Recovered':
+            col_idx = _last_nonzero_index(row)
         else:
-            index_val = -1
-        data[index] = [row[index_val]]
-    df = pd.DataFrame(data).T
-    df.columns = ['Value']
-    return df
+            col_idx = -1
+        data[index] = [row[col_idx]]
+
+    result = pd.DataFrame(data).T
+    result.columns = ['Value']
+    return result

@@ -1,0 +1,67 @@
+services:
+  call-log-analysis:
+    build: .
+    container_name: call-log-analysis
+    ports:
+      - "8501:8501"
+    command: >
+      streamlit run Streamlit/CallLogAnalysis/app.py
+      --server.port=8501
+      --server.address=0.0.0.0
+      --server.headless=true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  covid-data-analysis:
+    build: .
+    container_name: covid-data-analysis
+    ports:
+      - "8502:8502"
+    command: >
+      streamlit run Streamlit/CovidDataAnalysis/app.py
+      --server.port=8502
+      --server.address=0.0.0.0
+      --server.headless=true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8502/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  bank-deposit-analysis:
+    build: .
+    container_name: bank-deposit-analysis
+    ports:
+      - "8503:8503"
+    command: >
+      streamlit run Streamlit/BangladeshBankDeposit/app.py
+      --server.port=8503
+      --server.address=0.0.0.0
+      --server.headless=true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8503/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  jupyter:
+    build: .
+    container_name: jupyter-notebooks
+    ports:
+      - "8888:8888"
+    command: >
+      jupyter notebook
+      --ip=0.0.0.0
+      --port=8888
+      --no-browser
+      --allow-root
+      --NotebookApp.token=''
+      --NotebookApp.password=''
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8888/api"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

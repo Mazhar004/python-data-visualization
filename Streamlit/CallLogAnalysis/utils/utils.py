@@ -1,41 +1,49 @@
-def cal_total_min(df):
-    total_min = df.Duration.sum().total_seconds() // 60
-    return total_min
+"""Utility functions for call log data aggregation and formatting."""
+
+import pandas as pd
 
 
-def average_total_sec(df):
-    avg_sec = df.Duration.mean().total_seconds()
-    return int(avg_sec)
+def cal_total_min(df: pd.DataFrame) -> float:
+    """Calculate total call duration in minutes."""
+    return df.Duration.sum().total_seconds() // 60
 
 
-def frequency_count(df):
-    count_val = df.Duration.count()
-    return count_val
+def average_total_sec(df: pd.DataFrame) -> int:
+    """Calculate average call duration in seconds."""
+    return int(df.Duration.mean().total_seconds())
 
 
-def hour_format(x):
-    flag = 'AM'
-
-    if x == 0:
-        return f'12 {flag}'
-
-    if x > 11:
-        flag = 'PM'
-
-    if x > 12:
-        x = x % 12
-
-    return f'{x} {flag}'
+def frequency_count(df: pd.DataFrame) -> int:
+    """Count the number of call records."""
+    return df.Duration.count()
 
 
-def individual_count(person_df, field, col_name='Frequency'):
+def hour_format(hour: int) -> str:
+    """Convert 24-hour integer to 12-hour AM/PM string."""
+    if hour == 0:
+        return "12 AM"
+    period = "AM" if hour < 12 else "PM"
+    display_hour = hour if hour <= 12 else hour - 12
+    return f"{display_hour} {period}"
+
+
+def individual_count(
+    person_df: pd.DataFrame, field: str, col_name: str = "Frequency"
+) -> pd.DataFrame:
+    """Count occurrences of each unique value in a given field."""
     temp_df = person_df[field].value_counts().to_frame(name=col_name)
-    temp_df.index.name = 'Field'
+    temp_df.index.name = "Field"
     return temp_df
 
 
-def individual_group(person_df, func, index, col_name='Frequency'):
-    temp_df = person_df.groupby('Direction').apply(func).to_frame(col_name)
+def individual_group(
+    person_df: pd.DataFrame,
+    func: callable,
+    index: dict,
+    col_name: str = "Frequency",
+) -> pd.DataFrame:
+    """Group by Direction, apply an aggregation function, and rename the index."""
+    temp_df = person_df.groupby("Direction").apply(func).to_frame(col_name)
     temp_df = temp_df.rename(index=index)
-    temp_df.index.name = 'Field'
+    temp_df.index.name = "Field"
     return temp_df
