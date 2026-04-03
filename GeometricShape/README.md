@@ -1,28 +1,62 @@
-# Geometry Shape in Python3 #
+# Geometric Shapes in Python
 
-## Description: ##
+A collection of programs that render geometric shapes in two ways: ASCII art printed to the terminal and graphical plots drawn with matplotlib.
 
-In geometry different types of shapes are existing. And all of them can be represented as mathmatical law.
-Such as triangle,square etc.
+## Features
 
-## Program ##
+### Command-Line ASCII Shapes (Shape.ipynb)
 
-* In this program different types of shapes were created by taking input parameter "n" as number of line :
+Prints shapes to the console using `*` characters. Each function takes a parameter `n` controlling the number of lines:
 
-  ``` n = Number of line in this object shape ```
-  ``` 
-    Example for crown:
-    n=5 
-  ```
-  ![A Crown ](images/Crown.png)
-    
- * This problem is solved for :
-  * Command Line Print [Shape](Shape.ipynb)
-    * Triangle
-    * Right triangle
-    * Square
-    * Rectangle
-    * Crown
-  * Graphical Plot [Advanced Shape](Advanced%20Shape.ipynb):
-    * Rectangle
-    * Circle
+- Triangle
+- Right Triangle
+- Square
+- Rectangle
+- Crown
+
+### Graphical Plots (Advanced Shape.ipynb)
+
+Draws shapes on a matplotlib coordinate plane with configurable dimensions and positions:
+
+- Rectangle -- defined by width, height, and bottom-left corner
+- Circle -- defined by radius and center coordinates
+
+## Sample Output
+
+**Crown (n=5)**
+
+![Crown](images/Crown.png)
+
+## Tech Stack
+
+- **Python 3**
+- **numpy** -- coordinate computation for graphical shapes
+- **matplotlib** -- plotting for advanced shapes
+
+## How to Run
+
+1. Install dependencies:
+
+   ```bash
+   pip install numpy matplotlib
+   ```
+
+2. Open either notebook:
+
+   ```bash
+   jupyter notebook "Shape.ipynb"              # ASCII art shapes
+   jupyter notebook "Advanced Shape.ipynb"      # Graphical plot shapes
+   ```
+
+3. Run all cells. For the ASCII shapes, adjust the `n` parameter passed to each function to change the size.
+
+## Project Structure
+
+```
+GeometricShape/
+  Shape.ipynb            # ASCII art shapes (triangle, square, crown, etc.)
+  Advanced Shape.ipynb   # Matplotlib-drawn rectangle and circle
+  README.md
+  images/
+    Crown.png
+```

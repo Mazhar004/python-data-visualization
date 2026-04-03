@@ -1,71 +1,87 @@
-# Built In
-import os
 from datetime import datetime
+from pathlib import Path
 
-# Data analysis
 import pandas as pd
 
 
-def date_conv(str_date):
+def parse_date(date_str):
+    """Parse a date string, trying MM/DD/YY format first, then YYYY-MM-DD."""
     try:
-        str_date = datetime.strptime(str_date, '%m/%d/%y')
-    except Exception as _:
-        str_date = datetime.strptime(str_date, '%Y-%m-%d')
-    return str_date
+        return datetime.strptime(date_str, '%m/%d/%y')
+    except ValueError:
+        return datetime.strptime(date_str, '%Y-%m-%d')
 
 
-def col_conv(df):
-    col = map(date_conv, df.columns)
-    df.columns = list(col)
+def convert_columns_to_dates(df):
+    """Convert DataFrame column names from date strings to datetime objects."""
+    df.columns = [parse_date(col) for col in df.columns]
     return df
 
 
 def df_get_format(url_dict):
-    drop_col = ['Province/State', 'Lat', 'Long']
-    col = 'Country/Region'
+    """Fetch CSVs from URLs, aggregate by country, and combine into a single DataFrame."""
+    drop_cols = ['Province/State', 'Lat', 'Long']
+    group_col = 'Country/Region'
+
     df_list = []
-    for df_type, url in url_dict.items():
+    for url in url_dict.values():
         t_df = pd.read_csv(url)
-
-        t_df = t_df.drop(drop_col, axis=1)
-        t_df = t_df.groupby(col, as_index=True).apply(lambda x: x.sum())
-        t_df = t_df.drop([col], axis=1)
-
-        t_df = col_conv(t_df)
-
+        t_df = t_df.drop(drop_cols, axis=1)
+        t_df = t_df.groupby(group_col, as_index=True).apply(lambda x: x.sum())
+        t_df = t_df.drop(group_col, axis=1)
+        t_df = convert_columns_to_dates(t_df)
         df_list.append(t_df)
 
-    df = pd.concat(df_list,
-                   keys=url_dict.keys(),
-                   names=['Dataset', 'Country'])
-    return df
+    return pd.concat(
+        df_list,
+        keys=url_dict.keys(),
+        names=['Dataset', 'Country'],
+    )
 
 
 def get_data(online=True):
-    confirmed_url = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_confirmed_global.csv&filename=time_series_covid19_confirmed_global.csv'
-    recovered_url = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_recovered_global.csv&filename=time_series_covid19_recovered_global.csv'
-    death_url = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_deaths_global.csv&filename=time_series_covid19_deaths_global.csv'
+    """Fetch COVID-19 data either from remote CSVs or a local cache."""
+    url_dict = {
+        'Confirmed': (
+            'https://data.humdata.org/hxlproxy/api/data-preview.csv'
+            '?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19'
+            '%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series'
+            '%2Ftime_series_covid19_confirmed_global.csv'
+            '&filename=time_series_covid19_confirmed_global.csv'
+        ),
+        'Recovered': (
+            'https://data.humdata.org/hxlproxy/api/data-preview.csv'
+            '?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19'
+            '%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series'
+            '%2Ftime_series_covid19_recovered_global.csv'
+            '&filename=time_series_covid19_recovered_global.csv'
+        ),
+        'Death': (
+            'https://data.humdata.org/hxlproxy/api/data-preview.csv'
+            '?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19'
+            '%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series'
+            '%2Ftime_series_covid19_deaths_global.csv'
+            '&filename=time_series_covid19_deaths_global.csv'
+        ),
+    }
 
-    url_dict = {'Confirmed': confirmed_url,
-                'Recovered': recovered_url,
-                'Death': death_url,
-                }
-
-    os.makedirs('data', exist_ok=True)
-    filename = 'data/full_stats.csv'
+    data_dir = Path('data')
+    data_dir.mkdir(exist_ok=True)
+    filepath = data_dir / 'full_stats.csv'
 
     if online:
-        print('Online Data fetching')
+        print('Fetching data online')
         df = df_get_format(url_dict)
-        df.to_csv(filename)
+        df.to_csv(filepath)
     else:
         try:
-            print('Locally Data fetching')
-            df = pd.read_csv(filename)
+            print('Fetching data locally')
+            df = pd.read_csv(filepath)
             df = df.set_index(['Dataset', 'Country'])
-            df = col_conv(df)
-        except Exception as _:
-            print('Data not available locally, needed to fecth online.\nPlease wait..')
+            df = convert_columns_to_dates(df)
+        except FileNotFoundError:
+            print('Data not available locally, fetching online.\nPlease wait...')
             df = df_get_format(url_dict)
-            df.to_csv(filename)
+            df.to_csv(filepath)
+
     return df

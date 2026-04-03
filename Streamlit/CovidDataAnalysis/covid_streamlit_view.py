@@ -1,30 +1,40 @@
 from itertools import product
 
-# Web
 import streamlit as st
 
-# Custom
-from utils import date_filter, build_bar_data
-from covid_fig import covid_analyze_lines, covid_analyze_bars
+from covid_fig import covid_analyze_bars, covid_analyze_lines
+from utils import build_bar_data, date_filter
+
+
+def _compute_date_slice(date_range, min_date):
+    st_index = (date_range[0] - min_date).days + 2
+    lt_index = (date_range[1] - date_range[0]).days + st_index
+    return st_index, lt_index
 
 
 def covid_lines_stats(df, min_date, max_date, country_list, d_type_list):
-    st.subheader('COVID-19 Line Chart by Country')
+    st.subheader("COVID-19 Line Chart by Country")
 
     col1, col2 = st.columns([1, 3])
     with col1:
         countries = st.multiselect(
-            "Select countries to analyze", country_list, key='Country Name')
+            "Select countries to analyze", country_list, key="Country Name"
+        )
         d_types = st.multiselect(
-            "Select data types", d_type_list, key='Data Type')
-        date_range = st.slider("Select a date range", min_value=min_date,
-                               max_value=max_date, value=(min_date, max_date), key='Line Date')
+            "Select data types", d_type_list, key="Data Type"
+        )
+        date_range = st.slider(
+            "Select a date range",
+            min_value=min_date,
+            max_value=max_date,
+            value=(min_date, max_date),
+            key="Line Date",
+        )
     with col2:
         indexes = list(product(d_types, countries))
         temp_df = df.loc[indexes, :]
 
-        st_index = (date_range[0]-min_date).days+2
-        lt_index = (date_range[1] - date_range[0]).days + st_index
+        st_index, lt_index = _compute_date_slice(date_range, min_date)
         temp_df = date_filter(temp_df, st_index, lt_index)
 
         fig = covid_analyze_lines(temp_df)
@@ -32,25 +42,29 @@ def covid_lines_stats(df, min_date, max_date, country_list, d_type_list):
 
 
 def covid_bars_stats(df, min_date, max_date, d_type_list):
-    st.subheader('Top Countries Affected by COVID-19')
+    st.subheader("Top Countries Affected by COVID-19")
 
     col1, col2 = st.columns([1, 3])
     with col1:
         top_k = st.selectbox(
-            "Select number of countries", [10, 15, 20, 25, 30], key='Top K')
+            "Select number of countries", [10, 15, 20, 25, 30], key="Top K"
+        )
         d_types = st.selectbox(
-            "Select data type", d_type_list, key='Data Type Single')
-        date_range = st.slider("Select a date range", min_value=min_date,
-                               max_value=max_date, value=(min_date, max_date), key='Bar Date')
+            "Select data type", d_type_list, key="Data Type Single"
+        )
+        date_range = st.slider(
+            "Select a date range",
+            min_value=min_date,
+            max_value=max_date,
+            value=(min_date, max_date),
+            key="Bar Date",
+        )
     with col2:
         temp_df = df.loc[d_types]
 
-        st_index = (date_range[0]-min_date).days+2
-        lt_index = (date_range[1] - date_range[0]).days + st_index
+        st_index, lt_index = _compute_date_slice(date_range, min_date)
         temp_df = date_filter(temp_df, st_index, lt_index)
-
         temp_df = build_bar_data(temp_df, d_types)
 
-        fig = covid_analyze_bars(
-            temp_df, d_types, date_range[0], date_range[1], top_k)
+        fig = covid_analyze_bars(temp_df, d_types, date_range[0], date_range[1], top_k)
         st.plotly_chart(fig, use_container_width=True)

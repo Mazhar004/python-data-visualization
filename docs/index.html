@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Data Visualization Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ===== CSS RESET & VARIABLES ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a1f35;
+            --bg-card-hover: #222845;
+            --text-primary: #f0f4ff;
+            --text-secondary: #94a3c8;
+            --text-muted: #6b7a99;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-teal: #14b8a6;
+            --accent-pink: #ec4899;
+            --accent-amber: #f59e0b;
+            --gradient-primary: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            --gradient-secondary: linear-gradient(135deg, #14b8a6, #3b82f6);
+            --gradient-accent: linear-gradient(135deg, #8b5cf6, #ec4899);
+            --gradient-hero: linear-gradient(160deg, #0a0e1a 0%, #111827 30%, #1a1040 60%, #0f172a 100%);
+            --border-color: rgba(148, 163, 200, 0.1);
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+            --shadow-card-hover: 0 12px 40px rgba(59, 130, 246, 0.15);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-blue) var(--bg-secondary);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-blue);
+            border-radius: 4px;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: var(--transition-medium);
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 14, 26, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.75rem 2rem;
+        }
+
+        .navbar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .navbar-logo i {
+            -webkit-text-fill-color: initial;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.3rem;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .navbar-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .navbar-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: var(--transition-medium);
+            border-radius: 2px;
+        }
+
+        .navbar-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .navbar-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: var(--gradient-hero);
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero-bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .hero-glow-1 {
+            top: -200px;
+            right: -100px;
+            background: var(--accent-purple);
+        }
+
+        .hero-glow-2 {
+            bottom: -200px;
+            left: -100px;
+            background: var(--accent-blue);
+        }
+
+        .hero-glow-3 {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: var(--accent-teal);
+            opacity: 0.08;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent-blue);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .hero-badge i {
+            font-size: 0.75rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.15s forwards;
+            opacity: 0;
+        }
+
+        .hero-title .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-title .gradient-text-2 {
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            font-weight: 400;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.45s forwards;
+            opacity: 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.75rem;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            animation: bounce 2s infinite;
+        }
+
+        .hero-scroll-indicator .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--accent-blue), transparent);
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats {
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition-slow);
+        }
+
+        .stat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+            font-weight: 500;
+        }
+
+        .stat-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== SECTION STYLES ===== */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== FILTER BUTTONS ===== */
+        .filter-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            padding: 0.55rem 1.3rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            border: 1px solid var(--border-color);
+            background: transparent;
+            color: var(--text-secondary);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent-blue);
+            color: var(--text-primary);
+            background: rgba(59, 130, 246, 0.08);
+        }
+
+        .filter-btn.active {
+            background: var(--gradient-primary);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        /* ===== PROJECT CARDS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.75rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition-medium);
+            opacity: 0;
+            transform: translateY(30px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card.hidden {
+            display: none;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: var(--shadow-card-hover);
+            background: var(--bg-card-hover);
+        }
+
+        .project-card.visible:hover {
+            transform: translateY(-6px);
+        }
+
+        .card-image-container {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .project-card:hover .card-image {
+            transform: scale(1.05);
+        }
+
+        .card-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 40%, rgba(10, 14, 26, 0.85));
+            opacity: 0;
+            transition: var(--transition-medium);
+        }
+
+        .project-card:hover .card-image-overlay {
+            opacity: 1;
+        }
+
+        .card-category-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .badge-streamlit {
+            background: rgba(255, 75, 75, 0.2);
+            color: #ff6b6b;
+            border: 1px solid rgba(255, 75, 75, 0.3);
+        }
+
+        .badge-analysis {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .badge-math {
+            background: rgba(139, 92, 246, 0.2);
+            color: #a78bfa;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .badge-utility {
+            background: rgba(20, 184, 166, 0.2);
+            color: #5eead4;
+            border: 1px solid rgba(20, 184, 166, 0.3);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .card-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            flex: 1;
+        }
+
+        .card-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .tech-badge {
+            padding: 0.25rem 0.65rem;
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-blue);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+        }
+
+        .tech-badge.plotly {
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--accent-purple);
+            border-color: rgba(139, 92, 246, 0.15);
+        }
+
+        .tech-badge.streamlit {
+            background: rgba(255, 75, 75, 0.1);
+            color: #ff6b6b;
+            border-color: rgba(255, 75, 75, 0.15);
+        }
+
+        .tech-badge.pandas {
+            background: rgba(20, 184, 166, 0.1);
+            color: var(--accent-teal);
+            border-color: rgba(20, 184, 166, 0.15);
+        }
+
+        .tech-badge.matplotlib {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent-amber);
+            border-color: rgba(245, 158, 11, 0.15);
+        }
+
+        .tech-badge.scraping {
+            background: rgba(236, 72, 153, 0.1);
+            color: var(--accent-pink);
+            border-color: rgba(236, 72, 153, 0.15);
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.75rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: var(--transition-fast);
+            padding: 0.4rem 0.75rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .card-link:hover {
+            color: var(--accent-blue);
+            background: rgba(59, 130, 246, 0.08);
+        }
+
+        .card-link.live-demo {
+            color: var(--accent-teal);
+        }
+
+        .card-link.live-demo:hover {
+            background: rgba(20, 184, 166, 0.08);
+        }
+
+        /* ===== IMAGE MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-medium);
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-image {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: var(--radius-md);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: var(--transition-medium);
+        }
+
+        .modal-overlay.active .modal-image {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ===== TECH STACK SECTION ===== */
+        .tech-section {
+            padding: 5rem 2rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tech-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            transition: var(--transition-medium);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .tech-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tech-item:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .tech-item i {
+            font-size: 2rem;
+        }
+
+        .tech-item span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            transition: var(--transition-medium);
+        }
+
+        .footer-link:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-text a {
+            color: var(--accent-blue);
+            font-weight: 500;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-8px); }
+            60% { transform: translateX(-50%) translateY(-4px); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.15; }
+            50% { opacity: 0.25; }
+        }
+
+        .hero-glow-1 { animation: pulse-glow 6s ease-in-out infinite; }
+        .hero-glow-2 { animation: pulse-glow 8s ease-in-out infinite 2s; }
+        .hero-glow-3 { animation: pulse-glow 7s ease-in-out infinite 1s; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                justify-content: center;
+                padding: 2rem;
+                transition: var(--transition-medium);
+                border-left: 1px solid var(--border-color);
+            }
+
+            .navbar-links.open {
+                right: 0;
+            }
+
+            .mobile-toggle {
+                display: block;
+                z-index: 1001;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-image-container {
+                height: 200px;
+            }
+
+            .hero-title {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            .filter-bar {
+                gap: 0.4rem;
+            }
+
+            .filter-btn {
+                padding: 0.45rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .hero {
+                padding: 2rem 1.25rem;
+            }
+
+            .section {
+                padding: 4rem 1.25rem;
+            }
+
+            .card-body {
+                padding: 1.25rem;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ===== CARD IMAGE CLICK CURSOR ===== */
+        .card-image-container {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="#hero" class="navbar-logo">
+                <i class="fa-solid fa-chart-line"></i>
+                PyViz Portfolio
+            </a>
+            <ul class="navbar-links" id="navLinks">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#tech">Tech Stack</a></li>
+                <li><a href="https://github.com/Mazhar004/python-data-visualization" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="hero-glow hero-glow-3"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fa-solid fa-sparkles"></i>
+                Open Source Portfolio
+            </div>
+            <h1 class="hero-title">
+                Python <span class="gradient-text">Data</span><br>
+                <span class="gradient-text-2">Visualization</span>
+            </h1>
+            <p class="hero-subtitle">
+                A collection of data visualization projects spanning COVID-19 analysis,
+                financial data, mathematical art, and interactive dashboards &mdash;
+                built with Python, Matplotlib, Plotly, and Streamlit.
+            </p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fa-solid fa-grid-2"></i> Explore Projects
+                </a>
+                <a href="https://github.com/Mazhar004/python-data-visualization" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                    <i class="fa-brands fa-github"></i> View on GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-folder-open"></i></div>
+                <div class="stat-number" data-target="8">0</div>
+                <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-chart-bar"></i></div>
+                <div class="stat-number" data-target="40">0</div>
+                <div class="stat-label">Visualizations</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-rocket"></i></div>
+                <div class="stat-number" data-target="3">0</div>
+                <div class="stat-label">Live Demos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-code"></i></div>
+                <div class="stat-number" data-target="6">0</div>
+                <div class="stat-label">Libraries Used</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="section-header">
+            <div class="section-label">
+                <i class="fa-solid fa-cube"></i> Portfolio
+            </div>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-description">
+                Explore a diverse range of data visualization projects, from interactive web dashboards to mathematical art.
+            </p>
+        </div>
+
+        <div class="filter-bar" id="filterBar">
+            <button class="filter-btn active" data-filter="all">
+                <i class="fa-solid fa-border-all"></i> All
+            </button>
+            <button class="filter-btn" data-filter="streamlit">
+                <i class="fa-solid fa-globe"></i> Streamlit Apps
+            </button>
+            <button class="filter-btn" data-filter="analysis">
+                <i class="fa-solid fa-magnifying-glass-chart"></i> Data Analysis
+            </button>
+            <button class="filter-btn" data-filter="math">
+                <i class="fa-solid fa-shapes"></i> Mathematical Art
+            </button>
+            <button class="filter-btn" data-filter="utility">
+                <i class="fa-solid fa-toolbox"></i> Utilities
+            </button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+
+            <!-- COVID-19 Data Analysis (Matplotlib) -->
+            <div class="project-card" data-category="analysis">
+                <div class="card-image-container" onclick="openModal(this.querySelector('img').src)">
+                    <img src="../CoronaAffectedCountry/MatPlot/images/COVID death casees as a WordCloud.png" alt="COVID-19 WordCloud Visualization" class="card-image" loading="lazy">
+                    <div class="card-image-overlay"></div>
+                    <span class="card-category-badge badge-analysis">Data Analysis</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">COVID-19 Analysis &mdash; Matplotlib</h3>
+                    <p class="card-description">
+                        Static visualizations of global COVID-19 data using Matplotlib. Features word clouds of death cases, country-wise comparisons, bar charts of top 10 affected countries, and trend line graphs.
+                    </p>
+                    <div class="card-tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge matplotlib">Matplotlib</span>
+                        <span class="tech-badge pandas">Pandas</span>
+                        <span class="tech-badge">WordCloud</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="https://github.com/Mazhar004/python-data-visualization/tree/master/CoronaAffectedCountry/MatPlot" target="_blank" rel="noopener noreferrer" class="card-link">
+                            <i class="fa-brands fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COVID-19 Data Analysis (Plotly) -->
+            <div class="project-card" data-category="analysis">
+                <div class="card-image-container" onclick="openModal(this.querySelector('img').src)">
+                    <img src="../CoronaAffectedCountry/MatPlot/images/Top 10 Country by COVID death case.png" alt="COVID-19 Plotly Visualization" class="card-image" loading="lazy">
+                    <div class="card-image-overlay"></div>
+                    <span class="card-category-badge badge-analysis">Data Analysis</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">COVID-19 Analysis &mdash; Plotly</h3>
+                    <p class="card-description">
+                        Interactive visualizations of COVID-19 data using Plotly. Compare confirmed cases, deaths, and recoveries across countries with interactive hover tooltips, zoom, and pan capabilities.
+                    </p>
+                    <div class="card-tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge plotly">Plotly</span>
+                        <span class="tech-badge pandas">Pandas</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="https://github.com/Mazhar004/python-data-visualization/tree/master/CoronaAffectedCountry/Plotly" target="_blank" rel="noopener noreferrer" class="card-link">
+                            <i class="fa-brands fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COVID-19 Streamlit App -->
+            <div class="project-card" data-category="streamlit">
+                <div class="card-image-container" onclick="openModal(this.querySelector('img').src)">
+                    <img src="../Streamlit/CovidDataAnalysis/images/covid_bar.png" alt="COVID Streamlit Dashboard" class="card-image" loading="lazy">
+                    <div class="card-image-overlay"></div>
+                    <span class="card-category-badge badge-streamlit">Streamlit App</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">COVID-19 Interactive Dashboard</h3>
+                    <p class="card-description">
+                        A live Streamlit web application for exploring COVID-19 data interactively. Features dynamic filtering, multiple chart types, and real-time country-wise analysis.
+                    </p>
+                    <div class="card-tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge streamlit">Streamlit</span>
+                        <span class="tech-badge plotly">Plotly</span>
+                        <span class="tech-badge pandas">Pandas</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="https://github.com/Mazhar004/python-data-visualization/tree/master/Streamlit/CovidDataAnalysis" target="_blank" rel="noopener noreferrer" class="card-link">
+                            <i class="fa-brands fa-github"></i> Source Code
+                        </a>
+                        <a href="https://visualcovid.streamlit.app/" target="_blank" rel="noopener noreferrer" class="card-link live-demo">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call Log Analysis -->
+            <div class="project-card" data-category="streamlit">
+                <div class="card-image-container" onclick="openModal(this.querySelector('img').src)">
+                    <img src="../Streamlit/CallLogAnalysis/images/Person_Wise_Analysis.png" alt="Call Log Analysis" class="card-image" loading="lazy">
+                    <div class="card-image-overlay"></div>
+                    <span class="card-category-badge badge-streamlit">Streamlit App</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Call Log Analysis</h3>
+                    <p class="card-description">
+                        Interactive Streamlit dashboard analyzing phone call data. Visualize person-wise call patterns, peak call hours, and the balance between incoming and outgoing calls.
+                    </p>
+                    <div class="card-tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge streamlit">Streamlit</span>
+                        <span class="tech-badge plotly">Plotly</span>
+                        <span class="tech-badge pandas">Pandas</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="https://github.com/Mazhar004/python-data-visualization/tree/master/Streamlit/CallLogAnalysis" target="_blank" rel="noopener noreferrer" class="card-link">
+                            <i class="fa-brands fa-github"></i> Source Code
+                        </a>
+                        <a href="https://calllog.streamlit.app/" target="_blank" rel="noopener noreferrer" class="card-link live-demo">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bangladesh Bank Deposit -->
+            <div class="project-card" data-category="streamlit">
+                <div class="card-image-container" onclick="openModal(this.querySelector('img').src)">
+                    <img src="../Streamlit/BangladeshBankDeposit/images/bank_wise.png" alt="Bangladesh Bank Deposit Analysis" class="card-image" loading="lazy">
+                    <div class="card-image-overlay"></div>
+                    <span class="card-category-badge badge-streamlit">Streamlit App</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Bangladesh Bank Deposit Analysis</h3>
+                    <p class="card-description">
+                        Interactive analysis of deposit rates across Bangladeshi banks. Compare bank-wise and deposit-type trends with dynamic line charts and filtering capabilities.
+                    </p>
+                    <div class="card-tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge streamlit">Streamlit</span>
+                        <span class="tech-badge plotly">Plotly</span>
+                        <span class="tech-badge pandas">Pandas</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="https://github.com/Mazhar004/python-data-visualization/tree/master/Streamlit/BangladeshBankDeposit" target="_blank" rel="noopener noreferrer" class="card-link">
+                            <i class="fa-brands fa-github"></i> Source Code
+                        </a>
+                        <a href="https://bdbankanalysis.streamlit.app/" target="_blank" rel="noopener noreferrer" class="card-link live-demo">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SSC Scholarship -->
+            <div class="project-card" data-category="analysis">
+                <div class="card-image-container" onclick="openModal(this.querySelector('img').src)">
+                    <img src="../SSCScholarship/images/total.png" alt="SSC Scholarship Analysis" class="card-image" loading="lazy">
+                    <div class="card-image-overlay"></div>
+                    <span class="card-category-badge badge-analysis">Data Analysis</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">SSC Scholarship 2023</h3>
+                    <p class="card-description">
+                        Data extraction from PDF documents and statistical visualization of SSC scholarship distribution. Analyzes top 200 scholarship recipients and overall statistics.
+                    </p>
+                    <div class="card-tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge matplotlib">Matplotlib</span>
+                        <span class="tech-badge pandas">Pandas</span>
+                        <span class="tech-badge">PDF Parsing</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="https://github.com/Mazhar004/python-data-visualization/tree/master/SSCScholarship" target="_blank" rel="noopener noreferrer" class="card-link">
+                            <i class="fa-brands fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KUET Student Gender Ratio -->
+            <div class="project-card" data-category="analysis">
+                <div class="card-image-container" onclick="openModal(this.querySelector('img').src)">
+                    <img src="../KuetStudentGenderRatio/images/Percentage of Boys & Girls Department wise in KUET (27 October 2019).png" alt="KUET Gender Ratio" class="card-image" loading="lazy">
+                    <div class="card-image-overlay"></div>
+                    <span class="card-category-badge badge-analysis">Data Analysis</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">KUET Student Gender Ratio</h3>
+                    <p class="card-description">
+                        Web scraping and visualization of student gender demographics at KUET university. Department-wise breakdown showing the percentage distribution of boys and girls.
+                    </p>
+                    <div class="card-tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge matplotlib">Matplotlib</span>
+                        <span class="tech-badge scraping">BeautifulSoup</span>
+                        <span class="tech-badge pandas">Pandas</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="https://github.com/Mazhar004/python-data-visualization/tree/master/KuetStudentGenderRatio" target="_blank" rel="noopener noreferrer" class="card-link">
+                            <i class="fa-brands fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Matplotlib 2D & 3D -->
+            <div class="project-card" data-category="math">
+                <div class="card-image-container" onclick="openModal(this.querySelector('img').src)">
+                    <img src="../Matplot2D3D/images/Heart.png" alt="Mathematical Heart Shape" class="card-image" loading="lazy">
+                    <div class="card-image-overlay"></div>
+                    <span class="card-category-badge badge-math">Mathematical Art</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Matplotlib 2D &amp; 3D Art</h3>
+                    <p class="card-description">
+                        Mathematical art created with Matplotlib. Includes a parametric heart curve, 3D normal distribution surface, prime number spiral patterns, and randomized sine wave compositions.
+                    </p>
+                    <div class="card-tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge matplotlib">Matplotlib</span>
+                        <span class="tech-badge">NumPy</span>
+                        <span class="tech-badge plotly">3D Plotting</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="https://github.com/Mazhar004/python-data-visualization/tree/master/Matplot2D3D" target="_blank" rel="noopener noreferrer" class="card-link">
+                            <i class="fa-brands fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Geometric Shapes -->
+            <div class="project-card" data-category="math">
+                <div class="card-image-container" onclick="openModal(this.querySelector('img').src)">
+                    <img src="../GeometricShape/images/Crown.png" alt="Geometric Crown Shape" class="card-image" loading="lazy">
+                    <div class="card-image-overlay"></div>
+                    <span class="card-category-badge badge-math">Mathematical Art</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Geometric Shapes</h3>
+                    <p class="card-description">
+                        Algorithm-driven geometric pattern generation. Creates intricate shapes like crowns, triangles, squares, and rectangles using mathematical coordinate plotting.
+                    </p>
+                    <div class="card-tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge matplotlib">Matplotlib</span>
+                        <span class="tech-badge">NumPy</span>
+                        <span class="tech-badge">Algorithms</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="https://github.com/Mazhar004/python-data-visualization/tree/master/GeometricShape" target="_blank" rel="noopener noreferrer" class="card-link">
+                            <i class="fa-brands fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="project-card" data-category="utility">
+                <div class="card-image-container" onclick="openModal(this.querySelector('img').src)">
+                    <img src="../ProgressBar/images/progress bar.png" alt="Terminal Progress Bar" class="card-image" loading="lazy">
+                    <div class="card-image-overlay"></div>
+                    <span class="card-category-badge badge-utility">Utility</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Progress Bar</h3>
+                    <p class="card-description">
+                        A custom terminal progress bar utility with visual indicators. Displays real-time progress tracking with percentage completion and animated bar visualization.
+                    </p>
+                    <div class="card-tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">CLI</span>
+                        <span class="tech-badge">Terminal UI</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="https://github.com/Mazhar004/python-data-visualization/tree/master/ProgressBar" target="_blank" rel="noopener noreferrer" class="card-link">
+                            <i class="fa-brands fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-section" id="tech">
+        <div class="section-header">
+            <div class="section-label">
+                <i class="fa-solid fa-layer-group"></i> Technologies
+            </div>
+            <h2 class="section-title">Tech Stack</h2>
+            <p class="section-description">
+                The core technologies powering these visualization projects.
+            </p>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <i class="fa-brands fa-python" style="color: #3776AB;"></i>
+                <span>Python</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-solid fa-chart-simple" style="color: #F59E0B;"></i>
+                <span>Matplotlib</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-solid fa-chart-area" style="color: #8B5CF6;"></i>
+                <span>Plotly</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-solid fa-display" style="color: #FF4B4B;"></i>
+                <span>Streamlit</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-solid fa-table" style="color: #14B8A6;"></i>
+                <span>Pandas</span>
+            </div>
+            <div class="tech-item">
+                <i class="fa-solid fa-calculator" style="color: #3B82F6;"></i>
+                <span>NumPy</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/Mazhar004/python-data-visualization" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://github.com/Mazhar004" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="GitHub Profile">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </div>
+            <p class="footer-text">
+                Built with care by <a href="https://github.com/Mazhar004" target="_blank" rel="noopener noreferrer">Mazhar</a>. Open source on <a href="https://github.com/Mazhar004/python-data-visualization" target="_blank" rel="noopener noreferrer">GitHub</a>.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div class="modal-overlay" id="imageModal">
+        <button class="modal-close" id="modalClose" aria-label="Close modal">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img src="" alt="Full size preview" class="modal-image" id="modalImage">
+    </div>
+
+    <script>
+        /* ===== NAVBAR SCROLL EFFECT ===== */
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        });
+
+        /* ===== MOBILE MENU ===== */
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                const icon = mobileToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-xmark');
+            });
+        });
+
+        /* ===== FILTER FUNCTIONALITY ===== */
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+
+                projectCards.forEach((card, index) => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.classList.remove('hidden');
+                        card.style.transitionDelay = `${index * 0.05}s`;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        /* ===== ANIMATED COUNTERS ===== */
+        function animateCounter(element, target) {
+            const duration = 1800;
+            const start = 0;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 4); // ease-out quartic
+                const current = Math.floor(start + (target - start) * eased);
+
+                element.textContent = current + (target > 10 ? '+' : '');
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    element.textContent = target + (target > 10 ? '+' : '');
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        /* ===== INTERSECTION OBSERVER ===== */
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Stat items
+                    if (entry.target.classList.contains('stat-item')) {
+                        entry.target.classList.add('visible');
+                        const numEl = entry.target.querySelector('.stat-number');
+                        if (numEl && !numEl.dataset.animated) {
+                            numEl.dataset.animated = 'true';
+                            animateCounter(numEl, parseInt(numEl.dataset.target));
+                        }
+                    }
+
+                    // Project cards
+                    if (entry.target.classList.contains('project-card')) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, parseInt(entry.target.dataset.delay || 0));
+                    }
+
+                    // Tech items
+                    if (entry.target.classList.contains('tech-item')) {
+                        entry.target.classList.add('visible');
+                    }
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe stat items
+        document.querySelectorAll('.stat-item').forEach((item, i) => {
+            item.style.transitionDelay = `${i * 0.12}s`;
+            observer.observe(item);
+        });
+
+        // Observe project cards
+        document.querySelectorAll('.project-card').forEach((card, i) => {
+            card.dataset.delay = i * 80;
+            observer.observe(card);
+        });
+
+        // Observe tech items
+        document.querySelectorAll('.tech-item').forEach((item, i) => {
+            item.style.transitionDelay = `${i * 0.08}s`;
+            observer.observe(item);
+        });
+
+        /* ===== IMAGE MODAL ===== */
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalClose = document.getElementById('modalClose');
+
+        function openModal(src) {
+            modalImage.src = src;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        /* ===== SMOOTH SCROLL FOR ANCHOR LINKS ===== */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        /* ===== CARD IMAGE ERROR FALLBACK ===== */
+        document.querySelectorAll('.card-image').forEach(img => {
+            img.addEventListener('error', function() {
+                this.style.display = 'none';
+                const container = this.closest('.card-image-container');
+                container.style.background = 'linear-gradient(135deg, var(--bg-card) 0%, rgba(59, 130, 246, 0.1) 100%)';
+                container.style.display = 'flex';
+                container.style.alignItems = 'center';
+                container.style.justifyContent = 'center';
+
+                const icon = document.createElement('i');
+                icon.className = 'fa-solid fa-chart-line';
+                icon.style.fontSize = '3rem';
+                icon.style.color = 'var(--text-muted)';
+                container.appendChild(icon);
+            });
+        });
+    </script>
+
+</body>
+</html>
